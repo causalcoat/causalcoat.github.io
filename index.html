@@ -71,33 +71,38 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DeepInception: Hypnotize Large Language Model to Be Jailbreaker</h1>
+          <h1 class="title is-1 publication-title">COAT: Discovery of the Hidden World with Large Language Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://github.com/XuanLi728">Xuan Li</a><sup>1*</sup>,
+              <a href="https://chxliou.github.io/">Chenxi Liu</a><sup>1*</sup>,
             </span>
             <span class="author-block">
-              <a href="https://github.com/AndrewZhou924">Zhanke Zhou</a><sup>1*</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://zfancy.github.io/">Jianing Zhu</a><sup>1*</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://sunarker.github.io/">Jiangchao Yao</a><sup>2, 3</sup>,
+              <a href="https://lfhase.win">Yongqiang Chen</a><sup>2,3*</sup>,
             </span>
             <span class="author-block">
               <a href="https://tongliang-liu.github.io/">Tongliang Liu</a><sup>4</sup>,
             </span>
             <span class="author-block">
+              <a href="https://mingming-gong.github.io/">Mingming Gong</a><sup>5</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cse.cuhk.edu.hk/~jcheng/">James Cheng</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
               <a href="https://bhanml.github.io/">Bo Han</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.andrew.cmu.edu/user/kunz1/index.html">Kun Zhang</a><sup>2,6</sup>,
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>TMLR Group, Hong Kong Baptist University,</span>
-            <span class="author-block"><sup>2</sup>CMIC, Shanghai Jiao Tong University</span>
-            <span class="author-block"><sup>3</sup>Shanghai AI Laboratory</span>
-            <span class="author-block"><sup>4</sup>Sydney AI Centre, The University of Sydney</span>
+            <span class="author-block"><sup>1</sup>Hong Kong Baptist University,</span>
+            <span class="author-block"><sup>2</sup>MBZUAI, </span>
+            <span class="author-block"><sup>3</sup>The Chinese University of Hong Kong</span><br>
+            <span class="author-block"><sup>4</sup>The University of Sydney, </span>
+            <span class="author-block"><sup>5</sup>The University of Melbourne, </span>
+            <span class="author-block"><sup>6</sup>Carnegie Mellon University</span>
           </div>
 
           <div class="is-size-5 publication-authors">
@@ -109,7 +114,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="http://arxiv.org/abs/2311.03191"
+                <a href="https://causalcoat.github.io/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -119,7 +124,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/tmlr-group/DeepInception"
+                <a href="https://causalcoat.github.io/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -145,7 +150,19 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Despite remarkable success in various applications, large language models (LLMs) are vulnerable to adversarial jailbreaks that make the safety guardrails void. However, previous studies for jailbreaks usually resort to brute-force optimization or extrapolations of a high computation cost, which might not be practical or effective. In this paper, inspired by the Milgram experiment that individuals can harm another person if they are told to do so by an authoritative figure, we disclose a lightweight method, termed as <i>DeepInception</i>, which can easily hypnotize LLM to be a jailbreaker and unlock its misusing risks. Specifically, DeepInception leverages the personification ability of LLM to construct a novel nested scene to behave, which realizes an adaptive way to escape the usage control in a normal scenario and provides the possibility for further direct jailbreaks. Empirically, we conduct comprehensive experiments to show its efficacy. Our DeepInception can achieve competitive jailbreak success rates with previous counterparts and realize a continuous jailbreak in subsequent interactions, which reveals the critical weakness of self-losing on both open/closed-source LLMs like Falcon, Vicuna, Llama-2, and GPT-3.5/4/4V. Our investigation appeals that people should pay more attention to the safety aspects of LLMs and a stronger defense against their misuse risks.
+            Science originates with discovering new causal knowledge from a combination of known facts and observations.
+            Traditional causal discovery approaches mainly rely on high-quality measured variables, usually given by human
+            experts, to find causal relations. However, the causal variables are usually unavailable in a wide range of real-world
+            applications. The rise of large language models (LLMs) that are trained to learn rich knowledge from the massive
+            observations of the world, provides a new opportunity to assist with discovering high-level hidden variables from the
+            raw observational data. Therefore, we introduce COAT: Causal representatiOn AssistanT. COAT incorporates LLMs
+            as an factor proposer that extracts the potential causal factors from unstructured data. Moreover, LLMs can also be
+            instructed to provide additional information used to collect data values (e.g., annotation criteria) and to further
+            parse
+            the raw unstructured data into structured data. The annotated data will be fed to a causal learning module (e.g., the
+            FCI algorithm) that provides both rigorous explanations of the data, as well as useful feedback to further improve the
+            extraction of causal factors by LLMs. We verify the effectiveness of COAT in uncovering the underlying causal system
+            with two case studies of review rating analysis and neuropathic diagnosis.
           </p>
         </div>
       </div>
