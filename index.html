@@ -116,7 +116,7 @@
                             <div class="is-size-5 publication-authors">
                                 <span class="author-block" style="font-size: 15px;">(
                                     <sup>*</sup>Equal Contribution)
-                                </span>
+                                </span> 
                             </div>
                             <div class="column has-text-centered">
                                 <div class="publication-links">
@@ -139,6 +139,9 @@
                                         </a>
                                     </span>
                                 </div>
+                            </div>
+                            <div style="color: rgb(32, 64, 128);">
+                                <i>Accepted at <a style="color: rgb(32, 64, 128);font-weight: bold; text-decoration: underline;" href="https://neurips.cc/virtual/2024/poster/93175">NeurIPS 2024</a></i>
                             </div>
                         </div>
                     </div>
@@ -233,9 +236,11 @@ unstructured observational data, COAT aims to uncover the markov blanket with re
                         <h2 class="title is-3">Results on AppleGastronome Benchmark</h2>
                         <div class="content has-text-justified is-centered">
                             <p>
-                                In this benchmark, gastronomes comment and rate apples according to their preference.
-            Each apple has its own attributes, including size, smell, and taste (e.g. sweet or sour). 
-            The target variable is the rating score.
+                                In AppleGastronome benchmark, we consider the target variable as a rating score of the apple by
+astronomers. We prepare different high-level factors: 3 parents of Y, one child of Y, and one spouse
+of Y. These factors form a Markov blanket of Y. In addition, we also prepared one disturbing factor
+related to Y but not a part of this blanket. A good method is expected to propose the five high-level
+factors (up to semantical meanings) and exclude the disturbing factor.
                             </p>
                         </div>
                         <div class="content has-text-centered">
@@ -252,10 +257,20 @@ unstructured observational data, COAT aims to uncover the markov blanket with re
                         <br>
                         <div class="content has-text-justified is-centered">
                             <p>
-                                <b> Can LLMs be an effective factor proposer?</b>
-                                It can be found that,
-compared to other uses of LLMs, COAT obtain significant improvements regardless of which LLM is used. In contrast,
-directly using LLMs to reason about the causal relations results in a high sensitivity to the capabilities of LLMs.
+                                <b>Main Result</b> Empirically, LLMs
+                                with CoT can be aware
+                                of high-level factors behind
+                                data (lower OT than META)
+                                but still struggle to distinguish the desired factors
+                                in Markov Blanket (higher
+                                NMB than COAT ). COAT
+                                is more resistant to the
+                                ”disturbing” factor, which
+                                is supported by the lower
+                                NMB column. COAT filters out irrelevant factors
+                                from LLMs' prior knowledge that are not reflected
+                                by the data, which is supported by the lower OT column. COAT robustly encourages LLM to find more expected factors
+                                through the feedback, which is supported by the higher MB column.
                             </p>
                         </div>
                         <div class="content has-text-centered">
@@ -266,8 +281,8 @@ directly using LLMs to reason about the causal relations results in a high sensi
                                 alt="Interpolation end reference image."
                             >
                             <p class="content has-text-justified is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Table 1</b>
-                                . Causal discovery results in AppleGastronome. MB, NMB and OT refer to the number of causal factors discovered
+                                <b>Table 1</b>.
+                                Causal discovery results in AppleGastronome. MB, NMB and OT refer to the number of causal factors discovered
               in the underlying markov blanket, in the causal graph but not the markov blanket, and the other variables. Recall, precision,
               and F1 for factor proposal evaluate the discovered causal ancestors. Recall, precision, and F1 for relation extraction evaluate
               the recovery of the causal edges. The Data baseline refers to pairwise causal relation inference (Kiciman et al., 2023) based
@@ -275,24 +290,28 @@ directly using LLMs to reason about the causal relations results in a high sensi
                             </p>
                         </div>
                         <br>
+
                         <div class="content has-text-justified is-centered">
                             <p>
-                                <b> Can COAT reliably recover the causal relationships?</b>
-                                Compared to the ground truth results, directly adopting LLMs
-to reason about the causal relations can easily elicit lots of false positive causal relations. In contrast, the relations recovered
-by COAT have a high precision as well as the recall. The directed edge between “taste” and “juiciness” can not be recovered
-by COAT is because of the limitations of FCI.
+                                <b> Can LLMs be an effective factor proposer?</b>
+                                As discussed in Sec. 2.4 of paper, there are two crucial
+abilities for LLMs in identifying potential high-level factors. The first one is to be aware of the
+existence of potential factors, and the second is to synthesize and describe these factors. Inspired
+by this observation, we propose two novel metrics to quantify LLMs' causal ability: a) Perception
+that quantifies the ratio of valid factors (satisfying Prop. 2.1) proposed by LLMs in each round;
+b) Capacity that measures the effective mutual information drop in Assumption 2.2. As shown in
+Fig. 2(c), LLMs differ largely on the perception score while comparably on the capacity score.
                             </p>
                         </div>
                         <div class="content has-text-centered">
                             <img
-                                src="./static/paper_imgs/Example_Apple.png"
+                                src="./static/paper_imgs/AppleGastronome_LLM_Capa.png"
                                 style="width:800px;"
                                 class="result-image"
                                 alt="Interpolation end reference image."
                             >
                             <p class="content is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Figure 2</b>. The discovered causal graphs in AppleGastronome.
+                                <b>Figure 2</b>.  Quantitative evaluation of the causal capabilities of LLMs in COAT.
                             </p>
                         </div>
                         <br>
@@ -300,26 +319,10 @@ by COAT is because of the limitations of FCI.
                             <p>
                                 <b>Can LLMs be an effective factor annotator?</b>
                                 Moreover, since LLMs are also used to annotate the data according
-to the proposed annotation guidelines, we analyze the capabilities of LLMs in terms of annotation accuracy. It can be found that both LLMs are generally good at annotating objective attributes. When it comes to
-              the human subjective preferences, the performance of GPT-3.5 will decrease while being relatively high.
-                            </p>
-                        </div>
-                        <div class="content has-text-centered">
-                            <img
-                                src="./static/paper_imgs/Annotation_Accu.png"
-                                style="width:500px;"
-                                class="result-image"
-                                alt="Interpolation end reference image."
-                            >
-                            <p class="content has-text-justified is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Figure 3</b>.  Annotation accuracies of GPT-4 and GPT-3.5 for apple attributes and preference matchness in AppleGastronome
-                            </p>
-                        </div>
-                        <div class="content has-text-justified is-centered">
-                            <p>
-                                <b>Will LLMs introduce additional confounders in annotating factors?</b>
-                                In addition, since the annotated results by
-LLMs will involve additional noises, or even additional confounders, we also conduct independence tests among the annotation noises and the features.  It can be found that, with highly capable LLMs, e.g., GPT-4-Turbo, the dependencies can be controlled under an acceptable level.
+to the proposed annotation guidelines, we analyze the capabilities of LLMs in terms of annotation accuracy. As shown in Fig. 2(a-b), both GPT-3.5 and GPT-4
+annotate subjective attributes well. Regarding objective human preferences, the performances are still relatively high. In addition, since the annotated results by
+LLMs will involve additional noises, or even additional confounders, we also conduct independence tests among the annotation noises and the features.  
+It can be found that, with highly capable LLMs, e.g., GPT-4-Turbo, the dependencies can be controlled under an acceptable level.
                             </p>
                         </div>
                         <div class="content has-text-centered">
@@ -329,15 +332,41 @@ LLMs will involve additional noises, or even additional confounders, we also con
                                 class="result-image"
                                 alt="Interpolation end reference image."
                             >
-                            <p class="content has-text-justified is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Table 2</b>
-                                . Independence tests of the annotation noises with annotated features and other noises in AppleGastronome.
+                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
+                                <b>Table 2</b>. Independence tests of the annotation noises with annotated features and other noises in AppleGastronome.
                             </p>
                         </div>
+                        <div class="content has-text-justified is-centered">
+                            <p>
+                                <b>Can COAT reliably recover the causal relationships?</b>
+                                We present qualitative
+results in  Fig. 3. Compared to directly
+adopting LLMs to reason the causal relations, COAT significantly boosts the causal relation recovery.
+Meanwhile, COAT maintains high performances based on various LLMs, which further demonstrates
+the effectiveness of the causal feedback in COAT to improve the robustness of this system. In fact,
+the causal feedback focuses on making maximal use of the rich knowledge of LLMs, and reducing
+the reliance on the reasoning capabilities of different LLMs, to assist with causal discovery. We
+provide the full results of 10 LLMs in Appendix E.3.
+                            </p>
+                        </div>
+                        <div class="content has-text-centered">
+                            <img
+                                src="./static/paper_imgs/AppleGastronome_Graphs.png"
+                                style="width:800px;"
+                                class="result-image"
+                                alt="Interpolation end reference image."
+                            >
+                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
+                                <b>Figure 3</b>. The discovered causal graphs in AppleGastronome.
+                            </p>
+                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
         </section>
+
         <section class="section">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
@@ -413,24 +442,62 @@ symptoms
                 </div>
             </div>
         </section>
+
+        <section class="section">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column is-full-width has-text-centered">
+                        <h2 class="title is-3">ENSO Case Study</h2>
+                        <div class="content has-text-centered">
+                            <img
+                                src="./static/paper_imgs/ENSO_Graph.png"
+                                style="width:800px;"
+                                class="result-image"
+                                alt="Interpolation end reference image."
+                            >
+                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
+                                <b>Figure 5</Figure></b>. The final causal graph found by COAT in the ENSO case study
+                            </p>
+                        </div>
+                        <br>
+                        <div class="content has-text-justified is-centered">
+                            <p>
+                                <b>El Niño–Southern Oscillation (ENSO) Case study.</b>
+                                El Niño-Southern Oscillation (ENSO) is a
+climatic phenomenon in the Pacific Ocean that influences global weather patterns profoundly. To
+understand its mechanism, we apply COAT on NOAA dataset. There are 13 factors identified
+by COAT , and their instantaneous causal relations are visualized in Fig 7. The target variable is
+the future change in monthly SST in the Nino3 region, which could be an important indicator of
+ENSO events. Each factor is a time series about a certain climate measurement above a specific level
+averaged over a specific region. The paths about Sea level Pressure, Momentum Flux, and Cloud
+Cover matches the existing understanding from literature. It also suggests several
+inserting hypotheses that are less explored in literature, like the path from Soil Temperature in South
+American Coastal Region. We refer details in the paper's Appendix K.
+                            </p>
+                        </div> 
+                    
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="section" id="BibTeX">
             <div class="container is-max-desktop content">
                 <h2 class="title">Contact</h2>
                 <p>
-                    Welcome to check our paper for more details of the research work. If there is any question, please feel free to contact us.
+                    Welcome to check our paper for more details of the research work. For any question, please feel free to contact us.
                 </p>
                 <p>
                     If you find our paper and repo useful, please consider to cite:
                 </p>
                 <pre>
                     <code>
-    @article{causalcoat2024,
-      title={COAT: Discovery of the Hidden World with Large Language Models}, 
-      author={Chenxi Liu and Yongqiang Chen and Tongliang Liu and Mingming Gong and James Cheng and Bo Han and Kun Zhang},
-      year={2024},
-      journal = {arXiv preprint},
-      volume = {arXiv:2402.03941}
-    }
+@inproceedings{causalcoat2024,
+    title={Discovery of the Hidden World with Large Language Models}, 
+    author={Chenxi Liu and Yongqiang Chen and Tongliang Liu and Mingming Gong and James Cheng and Bo Han and Kun Zhang},
+    year={2024},
+    booktitle={Proceedings of the Thirty-eighth Annual Conference on Neural Information Processing Systems}
+}
                     </code>
                 </pre>
                 <br>
