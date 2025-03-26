@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!-- TypeIt package -->
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
 <html>
     <head>
         <meta charset="utf-8">
@@ -9,15 +6,25 @@
         <meta name="keywords" content="JailBreak, LLM, Security">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>COAT: Discovery of the Hidden World with Large Language Models</title>
-        <!-- Google tag (gtag.js) -->
+        
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK2R9XDD88"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
-
             gtag('config', 'G-MK2R9XDD88');
         </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script defer src="./static/js/fontawesome.all.min.js"></script>
+        <script src="./static/js/bulma-carousel.min.js"></script>
+        <script src="./static/js/bulma-slider.min.js"></script>
+        <script src="./static/js/index.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.10.1/typeit.min.js"></script>
+
+        <!-- Stylesheets -->
         <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
         <link rel="stylesheet" href="./static/css/bulma.min.css">
         <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -25,27 +32,30 @@
         <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
         <link rel="stylesheet" href="./static/css/index.css">
+        <link rel="stylesheet" href="./static/css/project-nav.css"> 
         <link rel="icon" href="./static/images/causalcoat.webp">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script defer src="./static/js/fontawesome.all.min.js"></script>
-        <script src="./static/js/bulma-carousel.min.js"></script>
-        <script src="./static/js/bulma-slider.min.js"></script>
-        <script src="./static/js/index.js"></script>
-        <!-- Typing Effect JS -->
-        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.10.1/typeit.min.js"></script>
-        <!-- / Typing Effect JS -->
+
         <style>
-    .bigdiv {
-      font-size: large;
-      font-family: "Courier New";
-      padding: 2rem;
-    }
-    p {
-      padding: 2rem;
-    }
+            .bigdiv {
+                font-size: large;
+                font-family: "Courier New";
+                padding: 2rem;
+            }
+            p {
+                padding: 2rem;
+            }
+            .hero {
+                background-image: url("./static/images/causalcoat.webp");
+                background-color: rgba(255, 255, 255, 0.8);
+                background-blend-mode: lighten;
+                background-repeat: no-repeat;
+                background-position: left top;
+                background-size: 50%;
+            }
         </style>
+
+        <!-- 添加导航脚本 -->
+        <script src="./static/js/project-nav.js"></script>
     </head>
     <body>
         <section class="hero">
@@ -57,12 +67,12 @@
                             <div class="is-size-5 publication-authors">
                                 <span class="author-block">
                                     <a href="https://chxliou.github.io/">Chenxi Liu</a>
-                                    <sup>1*</sup>
+                                    <sup>* 1</sup>
                                     ,
                                 </span>
                                 <span class="author-block">
                                     <a href="https://lfhase.win">Yongqiang Chen</a>
-                                    <sup>2,3,4*</sup>
+                                    <sup>* 2,3,4</sup>
                                     ,
                                 </span>
                                 <span class="author-block">
@@ -147,37 +157,66 @@
                     </div>
                 </div>
             </section>
-            <div class="content has-text-centered">
-              <img src="./static/images/causalcoat.webp" style="width:200px;">
-            </div>
             <section class="section">
                 <div class="container is-max-desktop">
-                    <!-- Abstract. -->
+                     <!-- Leading Question -->
                     <div class="columns is-centered has-text-centered">
                         <div class="column is-four-fifths">
-                            <h2 class="title is-3">Abstract</h2>
-                            <div class="content has-text-justified">
-                                <p>
-                                    Science originates with discovering new causal knowledge from a combination of known facts and observations.
-            Traditional causal discovery approaches mainly rely on high-quality measured variables, usually given by human
-            experts, to find causal relations. However, the causal variables are usually unavailable in a wide range of real-world
-            applications. The rise of large language models (LLMs) that are trained to learn rich knowledge from the massive
-            observations of the world, provides a new opportunity to assist with discovering high-level hidden variables from the
-            raw observational data. Therefore, we introduce COAT: Causal representatiOn AssistanT. COAT incorporates LLMs
-            as an factor proposer that extracts the potential causal factors from unstructured data. Moreover, LLMs can also be
-            instructed to provide additional information used to collect data values (e.g., annotation criteria) and to further
-            parse
-            the raw unstructured data into structured data. The annotated data will be fed to a causal learning module (e.g., the
-            FCI algorithm) that provides both rigorous explanations of the data, as well as useful feedback to further improve the
-            extraction of causal factors by LLMs. We verify the effectiveness of COAT in uncovering the underlying causal system
-            with two case studies of review rating analysis and neuropathic diagnosis.
+                            <div class="content has-text-centered">
+                                <p class="title is-3" style="cursor: pointer; display: inline-flex; align-items: center; color: rgb(32, 64, 128); font-style: italic; margin-bottom: 1rem; font-family: 'Times New Roman', Times, serif;" onclick="toggleAbstract()">
+                                    "How can LLMs reliably assist in revealing the causal mechanisms behind the real world?" 
+                                    <span style="margin-left: 0.5rem;">
+                                        <i class="fas fa-chevron-down" id="abstract-arrow"></i>
+                                    </span>
                                 </p>
+                                <!-- Abstract. -->
+                                <div class="box content has-text-justified" id="abstract-content" style="display: none; margin-top: 1rem; padding: 1.5rem; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
+                                    <p>
+                                        <b>Abstract.</b> 
+                                        Science originates with discovering new causal knowledge from a combination 
+                                    of known facts and observations. Traditional causal discovery approaches 
+                                    mainly rely on high-quality measured variables, usually given by human 
+                                    experts, to find causal relations. However, the causal variables are 
+                                    usually unavailable in a wide range of real-world applications. The rise 
+                                    of large language models (LLMs) that are trained to learn rich knowledge 
+                                    from the massive observations of the world, provides a new opportunity 
+                                    to assist with discovering high-level hidden variables from the raw 
+                                    observational data. Therefore, we introduce COAT: Causal representatiOn 
+                                    AssistanT. COAT incorporates LLMs as an factor proposer that extracts 
+                                    the potential causal factors from unstructured data. Moreover, LLMs can 
+                                    also be instructed to provide additional information used to collect data 
+                                    values (e.g., annotation criteria) and to further parse the raw unstructured 
+                                    data into structured data. The annotated data will be fed to a causal 
+                                    learning module (e.g., the FCI algorithm) that provides both rigorous 
+                                    explanations of the data, as well as useful feedback to further improve 
+                                    the extraction of causal factors by LLMs. We verify the effectiveness of 
+                                    COAT in uncovering the underlying causal system with two case studies of 
+                                    review rating analysis and neuropathic diagnosis.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!--/ Abstract. -->
                 </div>
             </section>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    function toggleAbstract() {
+                        const content = document.getElementById('abstract-content');
+                        const arrow = document.getElementById('abstract-arrow');
+                        if (content.style.display === 'none') {
+                            content.style.display = 'block';
+                            arrow.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                        } else {
+                            content.style.display = 'none';
+                            arrow.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                        }
+                    }
+                    // 绑定点击事件
+                    document.querySelector('.title.is-3').addEventListener('click', toggleAbstract);
+                });
+            </script>
             
             <section class="section">
                 <div class="container is-max-desktop">
@@ -187,10 +226,10 @@
                             <h2 class="title is-3">COAT Framework</h2>
                             <div class="content has-text-justified">
                                 <!-- Add image -->
-                                <div class="figure" style="align: left; text-align:center;">
+                                <div class="figure" style="text-align:center;">
                                     <img
                                         src="./static/paper_imgs/coat_illustration.jpg"
-                                        alt="img description"
+                                        alt="COAT Framework Illustration"
                                         width="800"
                                         height="600"
                                     >
@@ -198,37 +237,35 @@
                                         <b>Figure 1</b>. Illustration of the COAT framework.
                                     </p>
                                 </div>
-                                Inspired by real-world causal discovery applications, given a new task with
-unstructured observational data, COAT aims to uncover the markov blanket with respect to a target variable:
+                                
+                                <p>Inspired by real-world causal discovery applications, given a new task with
+                                unstructured observational data, COAT aims to uncover the markov blanket 
+                                with respect to a target variable:</p>
+                                
                                 <ul>
-                                    <li>
-                                        <b>(a) Factor Proposal.</b>
-                                        COAT
-                first adopts an LLM to read, comprehend, and relate the rich knowledge during pre-training to propose a series of
-                candidate factors along with some meta-information such as annotation guidelines.
-                                    </li>
-                                    <li>
-                                        <b>(b) Factor Annotation.</b>
-                                        Based on the candidate factors, COAT
-                then prompts another LLM to annotate or fetch the structured values of the unstructured data. With the annotated
-                structured data.
-                                    </li>
-                                    <li>
-                                        <b>(c1) Causal Discovery.</b>
-                                        With the annotated
-                structured data,the causal discovery algorithm is called to find causal relations among the factors
-                                    </li>
-                                    <li>
-                                        <b>(c2) Feedback Construction.</b> By looking at samples where the target variable can not be well explained with the existing factors, LLM is expected to associate more related knowledge to uncover the desired causal factor.
-                                    </li>
+                                    <li><b>(a) Factor Proposal.</b> COAT first adopts an LLM to read, 
+                                    comprehend, and relate the rich knowledge during pre-training to propose 
+                                    a series of candidate factors along with some meta-information such as 
+                                    annotation guidelines.</li>
+                                    
+                                    <li><b>(b) Factor Annotation.</b> Based on the candidate factors, COAT
+                                    then prompts another LLM to annotate or fetch the structured values of 
+                                    the unstructured data.</li>
+                                    
+                                    <li><b>(c1) Causal Discovery.</b> With the annotated structured data,
+                                    the causal discovery algorithm is called to find causal relations among 
+                                    the factors.</li>
+                                    
+                                    <li><b>(c2) Feedback Construction.</b> By looking at samples where the 
+                                    target variable can not be well explained with the existing factors, LLM 
+                                    is expected to associate more related knowledge to uncover the desired 
+                                    causal factor.</li>
                                 </ul>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!--/ Abstract. -->
-            </div>
-        </section>
+            </section>
         <section class="section">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
@@ -532,3 +569,5 @@ American Coastal Region. We refer details in the paper's Appendix K.
                 </div>
             </div>
         </footer>
+    </body>
+</html>
