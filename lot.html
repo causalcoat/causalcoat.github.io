@@ -402,6 +402,9 @@
                         <a class="navbar-item" href="#evaluation">
                             Evaluation
                         </a>
+                        <a class="navbar-item" href="#general-reasoning">
+                            General Reasoning
+                        </a>
                         <a class="navbar-item" href="#BibTeX">
                             Contact
                         </a>
@@ -1033,209 +1036,270 @@
     </div>
 </section>
 
-        <!-- Contact and BibTeX -->
-        <section class="section" id="BibTeX" data-aos="fade-up">
-            <div class="container is-max-desktop content">
-                <h2 class="title">Contact</h2>
-                <p>
-                    Welcome to check our paper for more details of the research work. For any question, please feel free to contact us.
-                </p>
-                <p>
-                    If you find our paper and repo useful, please consider to cite:
-                </p>
-                <div class="box" style="background-color: #f8f9fa; border-left: 4px solid #204080;">
-                    <pre style="background-color: transparent; padding: 0;">
-<code>will update once it is ready.</code>
-                    </pre>
-                    <div class="buttons is-centered mt-3">
-                        <button class="button is-small is-rounded" onclick="copyBibTeX()">
-                            <span class="icon is-small">
-                                <i class="fas fa-copy"></i>
-                            </span>
-                            <span>Copy BibTeX</span>
-                        </button>
+
+
+
+<section class="section" id="general-reasoning">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3" data-aos="fade-up">Experiments on General Reasoning Benchmarks</h2>
+                
+                <div class="content has-text-justified" data-aos="fade-up" data-aos-delay="100">
+                    <p>
+                        In this section, we extend our empirical studies with LoT to broader and more general reasoning tasks where CoT is shown to be limited and even underperform the direct prompting.
+                    </p>
+                    
+                    <h3 class="title is-4">Experimental Setup</h3>
+                    
+                    <p>
+                        <strong>Benchmark</strong> We consider 8 challenging real-world reasoning tasks where CoT is shown to be limited when compared to direct prompting, including GPQA, FOLIO, CommonsenseQA(CSQA), MUSR, MUSIQUE, the AR split of the AGIEval-LSAT, the level 3 abductive and level 4 deductive reasoning from contexthub. 
+                        The datasets cover from mathematical reasoning to soft reasoning. We do not include common mathematical benchmarks such GSM8k due to the potential data contamination issue and the results demonstrating the effectiveness of CoT in executing the mathematical calculation.
+                    </p>
+                    
+                    <p>
+                        <strong>Evaluation</strong> To align with the evaluation in previous work, we do not adopt the DeepSeek-v3. Concretely, we benchmark LoT across 6 LLMs including GPT4o-mini, Llama-3.1-70B-Instruct-Turbo, Llama-3.1-8B-Instruct-Turbo, Mistral-7B-Instruct-v0.3, Claude-3-Haiku, and Qwen2-72B-Instruct.
+                    </p>
+                    
+                    <p>
+                        We mainly consider two baselines as suggested by previous research. For the CoT results, we directly adopt the zero-shot Direct prompting and CoT responses provided by previous work. For a fair comparison, we do not directly incorporate the evaluation results while parsing the answers using the same parsing function, since the original evaluation results consider correct answers in the incorrect formats to be incorrect answers.
+                        We skip models without the responses provided such as Claude-3-Haiku in Abductive and Deductive reasoning.
+                        During the evaluation, some small LLMs or LLMs without sufficiently good instruction following capabilities may not be able to execute the instructions in LoT. Therefore, we use the bold out marker in markdown grammar to highlight the desired instructions. Empirically, it could alleviate the instruction following issue.
+                    </p>
+                    
+                    <h3 class="title is-4 mt-5">Experimental Results</h3>
+                    
+                    <div class="has-text-centered mb-5">
+                        <figure class="image">
+                            <a href="./static/paper_imgs/LoT/reasoning_plot.png" data-lightbox="reasoning-plot" data-title="Results on general reasoning tasks across different LLMs">
+                                <img src="./static/paper_imgs/LoT/reasoning_plot.png" alt="Results on general reasoning tasks" style="max-width: 100%; margin: 0 auto; cursor: zoom-in;" data-aos="zoom-in">
+                            </a>
+                            <figcaption class="has-text-grey mt-2">
+                                <b>Figure 3:</b> Results on general reasoning tasks across different LLMs.
+                            </figcaption>
+                        </figure>
                     </div>
+                    
+                    <p>
+                        We present the results in Figure 3. It can be found that, for most of the cases, LoT brings consistent and significant improvements over CoT across various tasks and the LLMs up to 20% in GPQA, verifying the effectiveness of our aforementioned discussions. Especially in some reasoning tasks such as FOLIO, CoT underperforms Direct prompting, LoT is competitive or better.
+                    </p>
+                    
+                    <p>
+                        Interestingly, LLMs with larger hyperparameters and better instruction-following capabilities usually have larger improvements. For example, the highest improvements are observed in Llama-3.1-70B and Qwen2-72B, while with Llama-3.1-8B and Mistral-7B, LoT does not always guarantee an improvement. We conjecture that small LLMs or LLMs with weaker instruction following capabilities may not be able to follow the LoT instructions.
+                    </p>
+                    
+                    <p>
+                        Meanwhile, we also notice that there are some cases such as LSAT where LoT may not bring improvements or lead to minor performance decreases. We conjecture that merely using better prompts can not fully resolve the language-thought gap. On the contrary, the expansion prompt may exacerbate the language modeling biases as discussed before. Therefore, it calls for in-depth investigation and a better strategy that extends the idea of LoT to fully mitigate the language-thought gap such as developing better instruction tuning methods in the future work.
+                    </p>
                 </div>
-                <script>
-                    function copyBibTeX() {
-                        const bibTeX = `@inproceedings{
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact and BibTeX -->
+<section class="section" id="BibTeX" data-aos="fade-up">
+    <div class="container is-max-desktop content">
+        <h2 class="title">Contact</h2>
+        <p>
+            Welcome to check our paper for more details of the research work. For any question, please feel free to contact us.
+        </p>
+        <p>
+            If you find our paper and repo useful, please consider to cite:
+        </p>
+        <div class="box" style="background-color: #f8f9fa; border-left: 4px solid #204080;">
+            <pre style="background-color: transparent; padding: 0;">
+<code>will update once it is ready.</code>
+            </pre>
+            <div class="buttons is-centered mt-3">
+                <button class="button is-small is-rounded" onclick="copyBibTeX()">
+                    <span class="icon is-small">
+                        <i class="fas fa-copy"></i>
+                    </span>
+                    <span>Copy BibTeX</span>
+                </button>
+            </div>
+        </div>
+        <script>
+            function copyBibTeX() {
+                const bibTeX = `@inproceedings{
 liu2025language,
 title={On the Language of Thoughts in Large Language Models},
 author={Chenxi Liu and Yongqiang Chen and Tongliang Liu and James Cheng and Bo Han and Kun Zhang},
 booktitle={Reasoning and Planning for LLMs @ ICLR},
 year={2025}
 }`;
-                        navigator.clipboard.writeText(bibTeX).then(() => {
-                            const button = document.querySelector('.buttons.is-centered .button');
-                            const originalText = button.innerHTML;
-                            button.innerHTML = '<span class="icon is-small"><i class="fas fa-check"></i></span><span>Copied!</span>';
-                            setTimeout(() => {
-                                button.innerHTML = originalText;
-                            }, 2000);
-                        });
-                    }
-                </script>
-            </div>
-        </section>
-        <footer class="footer">
-            <div class="container">
-                <!-- <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div> -->
-                <div class="columns is-centered">
-                    <div class="column is-8">
-                        <div class="content">
-                            <p>
-                                Thanks for the source template from
-                                <a href="https://github.com/nerfies/nerfies.github.io">here</a>
-                                .
-                            </p>
-                        </div>
-                    </div>
+                navigator.clipboard.writeText(bibTeX).then(() => {
+                    const button = document.querySelector('.buttons.is-centered .button');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<span class="icon is-small"><i class="fas fa-check"></i></span><span>Copied!</span>';
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                    }, 2000);
+                });
+            }
+        </script>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
+        <!-- <div class="content has-text-centered">
+  <a class="icon-link"
+     href="./static/videos/nerfies_paper.pdf">
+    <i class="fas fa-file-pdf"></i>
+  </a>
+  <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+    <i class="fab fa-github"></i>
+  </a>
+</div> -->
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        Thanks for the source template from
+                        <a href="https://github.com/nerfies/nerfies.github.io">here</a>
+                        .
+                    </p>
                 </div>
             </div>
-        </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 汉堡菜单功能
-            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-            if ($navbarBurgers.length > 0) {
-                $navbarBurgers.forEach(el => {
-                    el.addEventListener('click', () => {
-                        const target = el.dataset.target;
-                        const $target = document.getElementById(target);
-                        el.classList.toggle('is-active');
-                        $target.classList.toggle('is-active');
-                    });
-                });
-            }
-
-            // 滚动时导航栏样式变化
-            window.addEventListener('scroll', function() {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.classList.add('has-shadow');
-                    navbar.style.background = 'rgba(255, 255, 255, 0.97)';
-                } else {
-                    navbar.classList.remove('has-shadow');
-                    navbar.style.background = 'rgba(255, 255, 255, 0.9)';
-                }
-            });
-
-            // 返回顶部按钮功能
-            const backToTopButton = document.getElementById("back-to-top");
-            window.addEventListener("scroll", function() {
-                if (window.scrollY > 300) {
-                    backToTopButton.style.display = "block";
-                } else {
-                    backToTopButton.style.display = "none";
-                }
-            });
-            
-            backToTopButton.addEventListener("click", function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
+        </div>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 汉堡菜单功能
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        if ($navbarBurgers.length > 0) {
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
                 });
             });
+        }
 
-            // 平滑滚动
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                        const targetPosition = targetElement.offsetTop - navbarHeight;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // 初始化AOS动画
-            AOS.init({
-                duration: 800,
-                once: true,
-                offset: 200
-            });
-
-            if(window.MathJax && MathJax.startup) {
-            MathJax.startup.defaultReady();
-            MathJax.startup.promise.then(() => {
-                MathJax.typesetPromise();
-            });
+        // 滚动时导航栏样式变化
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('has-shadow');
+                navbar.style.background = 'rgba(255, 255, 255, 0.97)';
+            } else {
+                navbar.classList.remove('has-shadow');
+                navbar.style.background = 'rgba(255, 255, 255, 0.9)';
             }
         });
-    </script>
 
-    <!-- 页面加载进度条脚本 -->
-    <script>
-        // 页面加载进度条
-        document.addEventListener('DOMContentLoaded', function() {
-            const loader = document.getElementById('page-loader');
-            let width = 0;
-            const interval = setInterval(function() {
-                if (width >= 100) {
-                    clearInterval(interval);
-                    setTimeout(function() {
-                        loader.style.opacity = '0';
-                        setTimeout(function() {
-                            loader.style.display = 'none';
-                        }, 300);
-                    }, 500);
-                } else {
-                    width = Math.min(width + (100 - width) / 10, 95);
-                    loader.style.width = width + '%';
+        // 返回顶部按钮功能
+        const backToTopButton = document.getElementById("back-to-top");
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        });
+        
+        backToTopButton.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
-            }, 100);
-            
-            window.addEventListener('load', function() {
-                loader.style.width = '100%';
+            });
+        });
+
+        // 初始化AOS动画
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 200
+        });
+
+        if(window.MathJax && MathJax.startup) {
+        MathJax.startup.defaultReady();
+        MathJax.startup.promise.then(() => {
+            MathJax.typesetPromise();
+        });
+        }
+    });
+</script>
+
+<!-- 页面加载进度条脚本 -->
+<script>
+    // 页面加载进度条
+    document.addEventListener('DOMContentLoaded', function() {
+        const loader = document.getElementById('page-loader');
+        let width = 0;
+        const interval = setInterval(function() {
+            if (width >= 100) {
+                clearInterval(interval);
                 setTimeout(function() {
                     loader.style.opacity = '0';
                     setTimeout(function() {
                         loader.style.display = 'none';
                     }, 300);
                 }, 500);
-            });
-        });
-    </script>
-
-    <!-- 返回顶部按钮脚本 -->
-    <script>
-        // 显示或隐藏返回顶部按钮
-        const backToTopButton = document.getElementById('back-to-top');
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                backToTopButton.style.display = 'block';
             } else {
-                backToTopButton.style.display = 'none';
+                width = Math.min(width + (100 - width) / 10, 95);
+                loader.style.width = width + '%';
             }
-        };
-
-        // 点击返回顶部按钮时平滑滚动到顶部
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        }, 100);
+        
+        window.addEventListener('load', function() {
+            loader.style.width = '100%';
+            setTimeout(function() {
+                loader.style.opacity = '0';
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 300);
+            }, 500);
         });
-    </script>
+    });
+</script>
 
-    <!-- 返回顶部按钮 -->
-    <button id="back-to-top" title="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+<!-- 返回顶部按钮脚本 -->
+<script>
+    // 显示或隐藏返回顶部按钮
+    const backToTopButton = document.getElementById('back-to-top');
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    };
+
+    // 点击返回顶部按钮时平滑滚动到顶部
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<!-- 返回顶部按钮 -->
+<button id="back-to-top" title="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
     </body>
 </html>
