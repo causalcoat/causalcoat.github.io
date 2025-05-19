@@ -10,8 +10,8 @@ const projectList = [
         icon: "fa-link"
     },
     {
-        title: "On the Language of Thoughts in Large Language Models",
-        url: "https://openreview.net/pdf?id=AQpiyVis6R",
+        title: "On the Thinking-Language Modeling Gap in Large Language Models",
+        url: "https://causalcoat.github.io/lot.html",
         icon: "fa-link"
     },
     // 可以在这里添加更多项目

@@ -1,23 +1,196 @@
 <!DOCTYPE html>
-<!-- TypeIt package -->
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="description" content="COAT: Discovery of the Hidden World with Large Language Models">
+        <meta name="description" content="On the Language of Thoughts in Large Language Models">
         <meta name="keywords" content="JailBreak, LLM, Security">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>COAT: Discovery of the Hidden World with Large Language Models</title>
-        <!-- Google tag (gtag.js) -->
+        <title>On the Language of Thoughts in Large Language Models</title>
+        
+        <!-- Scripts -->
+        
+        
+        <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    macros: {
+                        bm: ["{\\boldsymbol{#1}}",1],
+                        gA: "{\\mathcal{A}}",
+                        gB: "{\\mathcal{B}}",
+                        gC: "{\\mathcal{C}}",
+                        gD: "{\\mathcal{D}}",
+                        gE: "{\\mathcal{E}}",
+                        gF: "{\\mathcal{F}}",
+                        gG: "{\\mathcal{G}}",
+                        gH: "{\\mathcal{H}}",
+                        gI: "{\\mathcal{I}}",
+                        gJ: "{\\mathcal{J}}",
+                        gK: "{\\mathcal{K}}",
+                        gL: "{\\mathcal{L}}",
+                        gM: "{\\mathcal{M}}",
+                        gN: "{\\mathcal{N}}",
+                        gO: "{\\mathcal{O}}",
+                        gP: "{\\mathcal{P}}",
+                        gQ: "{\\mathcal{Q}}",
+                        gR: "{\\mathcal{R}}",
+                        gS: "{\\mathcal{S}}",
+                        gT: "{\\mathcal{T}}",
+                        gU: "{\\mathcal{U}}",
+                        gV: "{\\mathcal{V}}",
+                        gW: "{\\mathcal{W}}",
+                        gX: "{\\mathcal{X}}",
+                        gY: "{\\mathcal{Y}}",
+                        gZ: "{\\mathcal{Z}}",
+                        
+                        // Additional math macros
+                        calO: "{\\mathcal{O}}",
+                        calD: "{\\mathcal{D}}",
+                        err: "{\\textnormal{err}}",
+                        indicate: "{\\mathbbm{1}}",
+                        norm: ["\\left\\lVert#1\\right\\rVert", 1],
+                        ind: "{\\,\\perp \\!\\!\\! \\perp\\,}",
+                        dsep: ["\\,{\\perp \\!\\!\\! \\perp}_{#1}\\,", 1],
+                        
+                        // Custom vector notation
+                        vzero: "{\\bm{0}}",
+                        vone: "{\\bm{1}}",
+                        vmu: "{\\bm{\\mu}}",
+                        vtheta: "{\\bm{\\theta}}",
+                        va: "{\\bm{a}}",
+                        vb: "{\\bm{b}}",
+                        vc: "{\\bm{c}}",
+                        vd: "{\\bm{d}}",
+                        ve: "{\\bm{e}}",
+                        vf: "{\\bm{f}}",
+                        vg: "{\\bm{g}}",
+                        vh: "{\\bm{h}}",
+                        vi: "{\\bm{i}}",
+                        vj: "{\\bm{j}}",
+                        vk: "{\\bm{k}}",
+                        vl: "{\\bm{l}}",
+                        vm: "{\\bm{m}}",
+                        vn: "{\\bm{n}}",
+                        vo: "{\\bm{o}}",
+                        vp: "{\\bm{p}}",
+                        vq: "{\\bm{q}}",
+                        vr: "{\\bm{r}}",
+                        vs: "{\\bm{s}}",
+                        vt: "{\\bm{t}}",
+                        vu: "{\\bm{u}}",
+                        vv: "{\\bm{v}}",
+                        vw: "{\\bm{w}}",
+                        vx: "{\\bm{x}}",
+                        vy: "{\\bm{y}}",
+                        vz: "{\\bm{z}}",
+                        
+                        // Matrix notation
+                        mA: "{\\bm{A}}",
+                        mB: "{\\bm{B}}",
+                        mC: "{\\bm{C}}",
+                        mD: "{\\bm{D}}",
+                        mE: "{\\bm{E}}",
+                        mF: "{\\bm{F}}",
+                        mG: "{\\bm{G}}",
+                        mH: "{\\bm{H}}",
+                        mI: "{\\bm{I}}",
+                        mJ: "{\\bm{J}}",
+                        mK: "{\\bm{K}}",
+                        mL: "{\\bm{L}}",
+                        mM: "{\\bm{M}}",
+                        mN: "{\\bm{N}}",
+                        mO: "{\\bm{O}}",
+                        mP: "{\\bm{P}}",
+                        mQ: "{\\bm{Q}}",
+                        mR: "{\\bm{R}}",
+                        mS: "{\\bm{S}}",
+                        mT: "{\\bm{T}}",
+                        mU: "{\\bm{U}}",
+                        mV: "{\\bm{V}}",
+                        mW: "{\\bm{W}}",
+                        mX: "{\\bm{X}}",
+                        mY: "{\\bm{Y}}",
+                        mZ: "{\\bm{Z}}",
+                        
+                        // Sets
+                        sA: "{\\mathbb{A}}",
+                        sB: "{\\mathbb{B}}",
+                        sC: "{\\mathbb{C}}",
+                        sD: "{\\mathbb{D}}",
+                        sF: "{\\mathbb{F}}",
+                        sG: "{\\mathbb{G}}",
+                        sH: "{\\mathbb{H}}",
+                        sI: "{\\mathbb{I}}",
+                        sJ: "{\\mathbb{J}}",
+                        sK: "{\\mathbb{K}}",
+                        sL: "{\\mathbb{L}}",
+                        sM: "{\\mathbb{M}}",
+                        sN: "{\\mathbb{N}}",
+                        sO: "{\\mathbb{O}}",
+                        sP: "{\\mathbb{P}}",
+                        sQ: "{\\mathbb{Q}}",
+                        sR: "{\\mathbb{R}}",
+                        sS: "{\\mathbb{S}}",
+                        sT: "{\\mathbb{T}}",
+                        sU: "{\\mathbb{U}}",
+                        sV: "{\\mathbb{V}}",
+                        sW: "{\\mathbb{W}}",
+                        sX: "{\\mathbb{X}}",
+                        sY: "{\\mathbb{Y}}",
+                        sZ: "{\\mathbb{Z}}",
+                        
+                        // Commonly used operators
+                        E: "{\\mathbb{E}}",
+                        Ls: "{\\mathcal{L}}",
+                        R: "{\\mathbb{R}}",
+                        Var: "{\\mathrm{Var}}",
+                        Cov: "{\\mathrm{Cov}}",
+                        KL: "{D_{\\mathrm{KL}}}",
+                        
+                        // Custom operators
+                        argmax: "{\\mathop{\\arg\\max}}",
+                        argmin: "{\\mathop{\\arg\\min}}",
+                        sign: "{\\operatorname{sign}}",
+                        Tr: "{\\operatorname{Tr}}"
+                    }
+                }
+            };
+            // Load the mathjax library dynamically
+            const script = document.createElement('script');
+            script.setAttribute('src', 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js');
+            document.head.appendChild(script);
+        </script>
+ 
+
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK2R9XDD88"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
-
             gtag('config', 'G-MK2R9XDD88');
         </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script defer src="./static/js/fontawesome.all.min.js"></script>
+        <script src="./static/js/bulma-carousel.min.js"></script>
+        <script src="./static/js/bulma-slider.min.js"></script>
+        <script src="./static/js/index.js"></script>
+        
+
+        <!-- 添加prism.js语法高亮 -->
+        <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+        
+        <!-- 添加LightBox库 -->
+        <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+        
+        <!-- 添加AOS动画库 -->
+        <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        
+        <!-- Stylesheets -->
         <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
         <link rel="stylesheet" href="./static/css/bulma.min.css">
         <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -25,44 +198,252 @@
         <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
         <link rel="stylesheet" href="./static/css/index.css">
-        <link rel="icon" href="./static/images/causalcoat.webp">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script defer src="./static/js/fontawesome.all.min.js"></script>
-        <script src="./static/js/bulma-carousel.min.js"></script>
-        <script src="./static/js/bulma-slider.min.js"></script>
-        <script src="./static/js/index.js"></script>
-        <!-- Typing Effect JS -->
-        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.10.1/typeit.min.js"></script>
-        <!-- / Typing Effect JS -->
+        <link rel="stylesheet" href="./static/css/project-nav.css"> 
+        <link rel="icon" href="./static/images/lot-image.jpeg">
+
         <style>
-    .bigdiv {
-      font-size: large;
-      font-family: "Courier New";
-      padding: 2rem;
-    }
-    p {
-      padding: 2rem;
-    }
+            /* 响应式布局调整 */
+            @media screen and (max-width: 768px) {
+                .hero {
+                    background-size: 100%;
+                    background-position: center top;
+                }
+                
+                .title.is-1 {
+                    font-size: 1.75rem;
+                }
+                
+                .is-size-5 {
+                    font-size: 0.9rem !important;
+                }
+                
+                p {
+                    padding: 0.5rem 1rem;
+                }
+                
+                .content .box, .notification {
+                    padding: 1rem;
+                }
+                
+                .section {
+                    padding: 1.5rem 1rem;
+                }
+            }
+            
+            body {
+                padding-top: 3.25rem; /* 为固定导航栏腾出空间 */
+                font-family: 'Noto Sans', 'Google Sans', sans-serif;
+                line-height: 1.6;
+                color: #333;
+            }
+            
+            .bigdiv {
+                font-size: large;
+                font-family: "Courier New";
+                padding: 2rem;
+            }
+            
+            p {
+                padding: 1rem 2rem;
+            }
+            
+            .hero {
+                background-image: url("./static/images/lot-image.jpeg");
+                background-color: rgba(255, 255, 255, 0.8);
+                background-blend-mode: lighten;
+                background-repeat: no-repeat;
+                background-position: left top;
+                background-size: 50%;
+                margin-top: 1rem;
+            }
+            
+            .navbar {
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            
+            .navbar-item {
+                font-weight: 500;
+                color: #333;
+                transition: color 0.2s;
+            }
+            
+            .navbar-item:hover {
+                color: #204080 !important;
+                background-color: transparent !important;
+            }
+            
+            .title {
+                color: #204080;
+            }
+            
+            .section {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .notification.is-light {
+                border-left: 4px solid #204080;
+            }
+            
+            .box {
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            
+            .box:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            }
+            
+            figure.image img {
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            
+            /* 代码块美化 */
+            code.has-text-grey-dark {
+                background: #f5f5f5;
+                padding: 0.2em 0.4em;
+                border-radius: 3px;
+                font-family: 'Courier New', monospace;
+            }
+            
+            /* 按钮美化 */
+            .button.is-dark {
+                background-color: #204080;
+                transition: background-color 0.3s;
+            }
+            
+            .button.is-dark:hover {
+                background-color: #152b57;
+            }
+            
+            /* 高亮标记 */
+            span[style*="background-color: #fffde7"] {
+                border-radius: 4px;
+                border-bottom: 2px solid #ffd54f;
+            }
+            
+            /* 表格样式 */
+            table {
+                width: 100%;
+                margin-bottom: 1.5rem;
+                border-collapse: collapse;
+            }
+            
+            table th, table td {
+                padding: 0.75rem;
+                border-bottom: 1px solid #dbdbdb;
+            }
+            
+            /* 锚点偏移修正 */
+            h2[id]::before {
+                content: "";
+                display: block;
+                height: 5rem;
+                margin-top: -5rem;
+                visibility: hidden;
+            }
+            
+            /* 返回顶部按钮 */
+            #back-to-top {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 99;
+                border: none;
+                outline: none;
+                background-color: #204080;
+                color: white;
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 50%;
+                font-size: 18px;
+                transition: all 0.3s;
+            }
+            
+            #back-to-top:hover {
+                background-color: #152b57;
+                transform: translateY(-3px);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
         </style>
+
+        <!-- 添加导航脚本 -->
+        <script src="./static/js/project-nav.js"></script>
     </head>
     <body>
+        <!-- 添加页面加载进度条 -->
+        <div id="page-loader" style="position: fixed; top: 0; left: 0; height: 3px; width: 0%; background-color: #204080; z-index: 9999; transition: width 0.2s ease-in-out;"></div>
+        
+        <!-- 添加导航栏 -->
+        <nav class="navbar is-light is-fixed-top" role="navigation" aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="#" style="font-weight: bold; color: #204080;">
+                        Language of Thoughts
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <div id="navbarBasic" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="#language-thought-gap">
+                            Language-Thought Gap
+                        </a>
+                        <a class="navbar-item" href="#verification">
+                            Verification
+                        </a>
+                        <a class="navbar-item" href="#evaluation">
+                            Evaluation
+                        </a>
+                        <a class="navbar-item" href="#BibTeX">
+                            Contact
+                        </a>
+                    </div>
+
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a href="https://openreview.net/pdf?id=AQpiyVis6R" class="button is-small is-light">
+                                    <span class="icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </span>
+                                    <span>Paper</span>
+                                </a>
+                                <a href="#" class="button is-small is-light">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
         <section class="hero">
             <div class="hero-body">
                 <div class="container is-max-desktop">
                     <div class="columns is-centered">
                         <div class="column has-text-centered">
-                            <h1 class="title is-1 publication-title">COAT: Discovery of the Hidden World with Large Language Models</h1>
+                            <h1 class="title is-1 publication-title">On the Thinking-Language Modeling Gap <br> in Large Language Models</h1>
                             <div class="is-size-5 publication-authors">
                                 <span class="author-block">
                                     <a href="https://chxliou.github.io/">Chenxi Liu</a>
-                                    <sup>1*</sup>
+                                    <sup>* 1</sup>
                                     ,
                                 </span>
                                 <span class="author-block">
                                     <a href="https://lfhase.win">Yongqiang Chen</a>
-                                    <sup>2,3,4*</sup>
+                                    <sup>* 2,3</sup>
                                     ,
                                 </span>
                                 <span class="author-block">
@@ -70,12 +451,6 @@
                                     <sup>5,2</sup>
                                     ,
                                 </span>
-                                <span class="author-block">
-                                    <a href="https://mingming-gong.github.io/">Mingming Gong</a>
-                                    <sup>6,2</sup>
-                                    ,
-                                </span>
-                                <br>
                                 <span class="author-block">
                                     <a href="https://www.cse.cuhk.edu.hk/~jcheng/">James Cheng</a>
                                     <sup>4</sup>
@@ -105,12 +480,8 @@
                                 <span class="author-block">
                                     <sup>4</sup>The Chinese University of Hong Kong
                                 </span>
-                                <br>
                                 <span class="author-block">
                                     <sup>5</sup>The University of Sydney,
-                                </span>
-                                <span class="author-block">
-                                    <sup>6</sup>The University of Melbourne,
                                 </span>
                             </div>
                             <div class="is-size-5 publication-authors">
@@ -122,7 +493,7 @@
                                 <div class="publication-links">
                                     <!-- PDF Link. -->
                                     <span class="link-block">
-                                        <a href="https://arxiv.org/abs/2402.03941" class="external-link button is-normal is-rounded is-dark">
+                                        <a href="https://openreview.net/pdf?id=AQpiyVis6R" class="external-link button is-normal is-rounded is-dark">
                                             <span class="icon">
                                                 <i class="fas fa-file-pdf"></i>
                                             </span>
@@ -131,7 +502,7 @@
                                     </span>
                                     <!-- Code Link. -->
                                     <span class="link-block">
-                                        <a href="https://github.com/tmlr-group/CausalCOAT" class="external-link button is-normal is-rounded is-dark">
+                                        <a href="https://openreview.net/pdf?id=AQpiyVis6R" class="external-link button is-normal is-rounded is-dark">
                                             <span class="icon">
                                                 <i class="fab fa-github"></i>
                                             </span>
@@ -141,347 +512,529 @@
                                 </div>
                             </div>
                             <div style="color: rgb(32, 64, 128);">
-                                <i>Accepted at <a style="color: rgb(32, 64, 128);font-weight: bold; text-decoration: underline;" href="https://neurips.cc/virtual/2024/poster/93175">NeurIPS 2024</a></i>
+                                <i>Preprint Version. Also in <a style="color: rgb(32, 64, 128);font-weight: bold; text-decoration: underline;" href="https://workshop-llm-reasoning-planning.github.io/">Reasoning and Planning for LLMs @ ICLR 2025</a></i>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <div class="content has-text-centered">
-              <img src="./static/images/causalcoat.webp" style="width:200px;">
-            </div>
-            <section class="section">
-                <div class="container is-max-desktop">
-                    <!-- Abstract. -->
-                    <div class="columns is-centered has-text-centered">
-                        <div class="column is-four-fifths">
-                            <h2 class="title is-3">Abstract</h2>
-                            <div class="content has-text-justified">
+        </section>
+
+        <!-- Leading Question and Abstraction -->
+        <section class="section">
+            <div class="container is-max-desktop">
+                    <!-- Leading Question -->
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <div class="content has-text-centered">
+                            <p class="title is-3" style="cursor: pointer; display: inline-flex; align-items: center; color: rgb(32, 64, 128); font-style: italic; margin-bottom: 1rem; font-family: 'Times New Roman', Times, serif;" onclick="toggleAbstract()">
+                                "How does the language expression influence the reasoning process of LLMs?" 
+                                <span style="margin-left: 0.5rem;">
+                                    <i class="fas fa-chevron-down" id="abstract-arrow"></i>
+                                </span>
+                            </p>
+                            <!-- Abstract. -->
+                            <div class="box content has-text-justified" id="abstract-content" style="display: none; margin-top: 1rem; padding: 1.5rem; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
                                 <p>
-                                    Science originates with discovering new causal knowledge from a combination of known facts and observations.
-            Traditional causal discovery approaches mainly rely on high-quality measured variables, usually given by human
-            experts, to find causal relations. However, the causal variables are usually unavailable in a wide range of real-world
-            applications. The rise of large language models (LLMs) that are trained to learn rich knowledge from the massive
-            observations of the world, provides a new opportunity to assist with discovering high-level hidden variables from the
-            raw observational data. Therefore, we introduce COAT: Causal representatiOn AssistanT. COAT incorporates LLMs
-            as an factor proposer that extracts the potential causal factors from unstructured data. Moreover, LLMs can also be
-            instructed to provide additional information used to collect data values (e.g., annotation criteria) and to further
-            parse
-            the raw unstructured data into structured data. The annotated data will be fed to a causal learning module (e.g., the
-            FCI algorithm) that provides both rigorous explanations of the data, as well as useful feedback to further improve the
-            extraction of causal factors by LLMs. We verify the effectiveness of COAT in uncovering the underlying causal system
-            with two case studies of review rating analysis and neuropathic diagnosis.
+                                    <b>Abstract.</b> System 2 reasoning is one of the defining characteristics of intelligence, which requires slow and logical thinking. Human conducts System 2 reasoning via the language of thoughts that organizes the reasoning process as a causal sequence of mental language, or thoughts. Recently, it has been observed that System 2 reasoning can be elicited from Large Language Models (LLMs) pre-trained on large-scale natural languages. However, in this work, we show that there is a significant gap between the modeling of languages and thoughts. As language is primarily a tool for humans to share knowledge and thinking, modeling human language can easily absorb language biases into LLMs deviated from the chain of thoughts in minds. Furthermore, we show that the biases will mislead the eliciting of "thoughts" in LLMs to focus only on a biased part of the premise. To this end, we propose a new prompt technique termed Language-of-Thoughts (LoT) to demonstrate and alleviate this gap. Instead of directly eliciting the chain of thoughts from partial information, LoT instructs LLMs to adjust the order and token used for the expressions of all the relevant information. We show that the simple strategy significantly reduces the language modeling biases in LLMs and improves the performance of LLMs across a variety of reasoning tasks.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <!--/ Abstract. -->
-                </div>
-            </section>
-            
-            <section class="section">
-                <div class="container is-max-desktop">
-                    <!-- Abstract. -->
-                    <div class="columns is-centered has-text-centered">
-                        <div class="column is-four-fifths">
-                            <h2 class="title is-3">COAT Framework</h2>
-                            <div class="content has-text-justified">
-                                <!-- Add image -->
-                                <div class="figure" style="align: left; text-align:center;">
-                                    <img
-                                        src="./static/paper_imgs/coat_illustration.jpg"
-                                        alt="img description"
-                                        width="800"
-                                        height="600"
-                                    >
-                                    <p class="content is-centered" style="color: gray; font-size: 10pt;">
-                                        <b>Figure 1</b>. Illustration of the COAT framework.
-                                    </p>
-                                </div>
-                                Inspired by real-world causal discovery applications, given a new task with
-unstructured observational data, COAT aims to uncover the markov blanket with respect to a target variable:
-                                <ul>
-                                    <li>
-                                        <b>(a) Factor Proposal.</b>
-                                        COAT
-                first adopts an LLM to read, comprehend, and relate the rich knowledge during pre-training to propose a series of
-                candidate factors along with some meta-information such as annotation guidelines.
-                                    </li>
-                                    <li>
-                                        <b>(b) Factor Annotation.</b>
-                                        Based on the candidate factors, COAT
-                then prompts another LLM to annotate or fetch the structured values of the unstructured data. With the annotated
-                structured data.
-                                    </li>
-                                    <li>
-                                        <b>(c1) Causal Discovery.</b>
-                                        With the annotated
-                structured data,the causal discovery algorithm is called to find causal relations among the factors
-                                    </li>
-                                    <li>
-                                        <b>(c2) Feedback Construction.</b> By looking at samples where the target variable can not be well explained with the existing factors, LLM is expected to associate more related knowledge to uncover the desired causal factor.
-                                    </li>
-                                </ul>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--/ Abstract. -->
-            </div>
-        </section>
-        <section class="section">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column is-full-width has-text-centered">
-                        <h2 class="title is-3">Results on AppleGastronome Benchmark</h2>
-                        <div class="content has-text-justified is-centered">
-                            <p>
-                                In AppleGastronome benchmark, we consider the target variable as a rating score of the apple by
-astronomers. We prepare different high-level factors: 3 parents of Y, one child of Y, and one spouse
-of Y. These factors form a Markov blanket of Y. In addition, we also prepared one disturbing factor
-related to Y but not a part of this blanket. A good method is expected to propose the five high-level
-factors (up to semantical meanings) and exclude the disturbing factor.
-                            </p>
-                        </div>
-                        <div class="content has-text-centered">
-                            <img
-                                src="./static/paper_imgs/ExampleDataApple.png"
-                                style="width:800px;"
-                                class="result-image"
-                                alt="Interpolation end reference image."
-                            >
-                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Box 1</b>. Examples of AppleGastronome data, grouped by the value of scores.
-                            </p>
-                        </div>
-                        <br>
-                        <div class="content has-text-justified is-centered">
-                            <p>
-                                <b>Main Result</b> Empirically, LLMs
-                                with CoT can be aware
-                                of high-level factors behind
-                                data (lower OT than META)
-                                but still struggle to distinguish the desired factors
-                                in Markov Blanket (higher
-                                NMB than COAT ). COAT
-                                is more resistant to the
-                                ”disturbing” factor, which
-                                is supported by the lower
-                                NMB column. COAT filters out irrelevant factors
-                                from LLMs' prior knowledge that are not reflected
-                                by the data, which is supported by the lower OT column. COAT robustly encourages LLM to find more expected factors
-                                through the feedback, which is supported by the higher MB column.
-                            </p>
-                        </div>
-                        <div class="content has-text-centered">
-                            <img
-                                src="./static/paper_imgs/table_1_AppleResults.png"
-                                style="width:600px;"
-                                class="result-image"
-                                alt="Interpolation end reference image."
-                            >
-                            <p class="content has-text-justified is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Table 1</b>.
-                                Causal discovery results in AppleGastronome. MB, NMB and OT refer to the number of causal factors discovered
-              in the underlying markov blanket, in the causal graph but not the markov blanket, and the other variables. Recall, precision,
-              and F1 for factor proposal evaluate the discovered causal ancestors. Recall, precision, and F1 for relation extraction evaluate
-              the recovery of the causal edges. The Data baseline refers to pairwise causal relation inference (Kiciman et al., 2023) based
-              on the factors discovered by Data.
-                            </p>
-                        </div>
-                        <br>
-
-                        <div class="content has-text-justified is-centered">
-                            <p>
-                                <b> Can LLMs be an effective factor proposer?</b>
-                                As discussed in Sec. 2.4 of paper, there are two crucial
-abilities for LLMs in identifying potential high-level factors. The first one is to be aware of the
-existence of potential factors, and the second is to synthesize and describe these factors. Inspired
-by this observation, we propose two novel metrics to quantify LLMs' causal ability: a) Perception
-that quantifies the ratio of valid factors (satisfying Prop. 2.1) proposed by LLMs in each round;
-b) Capacity that measures the effective mutual information drop in Assumption 2.2. As shown in
-Fig. 2(c), LLMs differ largely on the perception score while comparably on the capacity score.
-                            </p>
-                        </div>
-                        <div class="content has-text-centered">
-                            <img
-                                src="./static/paper_imgs/AppleGastronome_LLM_Capa.png"
-                                style="width:800px;"
-                                class="result-image"
-                                alt="Interpolation end reference image."
-                            >
-                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Figure 2</b>.  Quantitative evaluation of the causal capabilities of LLMs in COAT.
-                            </p>
-                        </div>
-                        <br>
-                        <div class="content has-text-justified is-centered">
-                            <p>
-                                <b>Can LLMs be an effective factor annotator?</b>
-                                Moreover, since LLMs are also used to annotate the data according
-to the proposed annotation guidelines, we analyze the capabilities of LLMs in terms of annotation accuracy. As shown in Fig. 2(a-b), both GPT-3.5 and GPT-4
-annotate subjective attributes well. Regarding objective human preferences, the performances are still relatively high. In addition, since the annotated results by
-LLMs will involve additional noises, or even additional confounders, we also conduct independence tests among the annotation noises and the features.  
-It can be found that, with highly capable LLMs, e.g., GPT-4-Turbo, the dependencies can be controlled under an acceptable level.
-                            </p>
-                        </div>
-                        <div class="content has-text-centered">
-                            <img
-                                src="./static/paper_imgs/indp_test_apple.png"
-                                style="width:300px;"
-                                class="result-image"
-                                alt="Interpolation end reference image."
-                            >
-                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Table 2</b>. Independence tests of the annotation noises with annotated features and other noises in AppleGastronome.
-                            </p>
-                        </div>
-                        <div class="content has-text-justified is-centered">
-                            <p>
-                                <b>Can COAT reliably recover the causal relationships?</b>
-                                We present qualitative
-results in  Fig. 3. Compared to directly
-adopting LLMs to reason the causal relations, COAT significantly boosts the causal relation recovery.
-Meanwhile, COAT maintains high performances based on various LLMs, which further demonstrates
-the effectiveness of the causal feedback in COAT to improve the robustness of this system. In fact,
-the causal feedback focuses on making maximal use of the rich knowledge of LLMs, and reducing
-the reliance on the reasoning capabilities of different LLMs, to assist with causal discovery. We
-provide the full results of 10 LLMs in Appendix E.3.
-                            </p>
-                        </div>
-                        <div class="content has-text-centered">
-                            <img
-                                src="./static/paper_imgs/AppleGastronome_Graphs.png"
-                                style="width:800px;"
-                                class="result-image"
-                                alt="Interpolation end reference image."
-                            >
-                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Figure 3</b>. The discovered causal graphs in AppleGastronome.
-                            </p>
-                        </div>
-                        
-                        
-                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column is-full-width has-text-centered">
-                        <h2 class="title is-3">Results on Neuropathic Benchmark</h2>
-                        <div class="content has-text-justified is-centered">
-                            <p>
-                                In the original dataset, there are three levels of causal variables, including the symptom-level, radiculopathy-level and
-the pathophysiology-level. In this project, we mainly consider the target variable of
-                                <b>right shoulder impingement</b>
-                                .
-When generating the clinical diagnosis notes as x using GPT-4, we will
-                                <b>
-                                    avoid any mentioning of variables other than
-symptoms
-                                </b>
-                                .
-                            </p>
-                        </div>
-                        <div class="content has-text-centered">
-                            <img
-                                src="./static/paper_imgs/ExampleDataNeuro.png"
-                                style="width:800px;"
-                                class="result-image"
-                                alt="Interpolation end reference image."
-                            >
-                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Box 2</b>. Examples of Neuropathic data, grouped by the presence of one certain symptom.
-                            </p>
-                        </div>
-                        <br>
-                        <div class="content has-text-justified is-centered">
-                            <p>
-                                <b> Factor proposal.</b>
-                                Similarly, we can find that
-              COAT consistently outperforms all of the baselines regardless of which LLMs are incorporated. In particular, COAT
-              can boost the weakest backbone LLaMA2-7b to be better than any other LLMs.
-                            </p>
-                        </div>
-                        <div class="content has-text-centered">
-                            <img
-                                src="./static/paper_imgs/table_2_NeuroResults.png"
-                                style="width:400px;"
-                                class="result-image"
-                                alt="Interpolation end reference image."
-                            >
-                            <p class="content has-text-justified is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Table 3</b>
-                                . Causal discovery results in Neuropathic. PA, AN, and OT refer to the parents, ancestors, and others, respectively.
-              Accuracy and F1 measure the recovery of the causal ancestors.
-                            </p>
-                        </div>
-                        <br>
-                        <div class="content has-text-justified is-centered">
-                            <p>
-                                <b> Causal relation recovery.</b>
-                                Due to the faithfulness issue of the original dataset (Tu et al., 2019), we mainly conduct a qualitative comparison between the ground truth that is faithful to the data, against the
-              baselines and COAT.
-                            </p>
-                        </div>
-                        <div class="content has-text-centered">
-                            <img
-                                src="./static/paper_imgs/Example_Neuro.png"
-                                style="width:800px;"
-                                class="result-image"
-                                alt="Interpolation end reference image."
-                            >
-                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Figure 4</b>. The discovered causal graphs in Neuropathic.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- js for Leading Question and Abstraction -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                function toggleAbstract() {
+                    const content = document.getElementById('abstract-content');
+                    const arrow = document.getElementById('abstract-arrow');
+                    if (content.style.display === 'none') {
+                        content.style.display = 'block';
+                        arrow.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                    } else {
+                        content.style.display = 'none';
+                        arrow.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                    }
+                }
+                // 绑定点击事件
+                document.querySelector('.title.is-3').addEventListener('click', toggleAbstract);
+            });
+        </script>
 
-        <section class="section">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column is-full-width has-text-centered">
-                        <h2 class="title is-3">ENSO Case Study</h2>
-                        <div class="content has-text-centered">
-                            <img
-                                src="./static/paper_imgs/ENSO_Graph.png"
-                                style="width:800px;"
-                                class="result-image"
-                                alt="Interpolation end reference image."
-                            >
-                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
-                                <b>Figure 5</Figure></b>. The final causal graph found by COAT in the ENSO case study
-                            </p>
-                        </div>
-                        <br>
-                        <div class="content has-text-justified is-centered">
-                            <p>
-                                <b>El Niño–Southern Oscillation (ENSO) Case study.</b>
-                                El Niño-Southern Oscillation (ENSO) is a
-climatic phenomenon in the Pacific Ocean that influences global weather patterns profoundly. To
-understand its mechanism, we apply COAT on NOAA dataset. There are 13 factors identified
-by COAT , and their instantaneous causal relations are visualized in Fig 7. The target variable is
-the future change in monthly SST in the Nino3 region, which could be an important indicator of
-ENSO events. Each factor is a time series about a certain climate measurement above a specific level
-averaged over a specific region. The paths about Sea level Pressure, Momentum Flux, and Cloud
-Cover matches the existing understanding from literature. It also suggests several
-inserting hypotheses that are less explored in literature, like the path from Soil Temperature in South
-American Coastal Region. We refer details in the paper's Appendix K.
-                            </p>
-                        </div> 
+        <!-- section: Language-Thought Modeling Gap -->
+        <section class="section" id="language-thought-gap">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-full-width has-text-centered">
+                <h2 class="title is-3">Language-Thought Modeling Gap</h2>
+                <div class="content has-text-centered">
+                    <a href="./static/paper_imgs/LoT/language-thought-gap_2.png" data-lightbox="figure-1" data-title="Figure 1: The illustration of the language-thought modeling gap.">
+                        <img
+                            src="./static/paper_imgs/LoT/language-thought-gap_2.png"
+                            style="width:800px; cursor: zoom-in;"
+                            class="result-image"
+                            alt="The illustration of the language-thought modeling gap"
+                            data-aos="fade-in"
+                        />
+                    </a>
+                    <p class="content is-centered" style="color: gray; font-size: 10pt;">
+                        <b>Figure 1</b>. The illustration of the language-thought modeling gap.
+                    </p>
+                </div>    
+                <div class="content has-text-justified is-centered">
+                    <p>
+                        Running example: a two-premise question-answering (QA) setting.
+                        In the upper part, $C_1, C_2, A$ are latent random variables under a structural causal model: $C_1 \rightarrow A \leftarrow C_2$.
+                        In the bottom part, $L_1, L_2, L_A$ are tokens drawn from expression sets $\gL_{C_1=c_1}$, $\gL_{C_2=c_2}$, and $\gL_{A=a}$ respectively.
+                        There are two orders displayed in this figure: the left one is in the topological order of the underlaying causal graph, while the right one is not.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 id="language-thought-gap" class="title is-3" data-aos="fade-up">The Language-Thought Gap in LLMs' Reasoning</h2>
+                
+                <div class="content has-text-justified" data-aos="fade-up" data-aos-delay="100">
+                    <p>
+                        In this section, we first consider a simplified setting to demonstrate the problem, then we formalize our conjecture into two parts: language modeling bias for training phase; and language-thought gap for inference phase.
+                    </p>
                     
+                    <h3 class="title is-4">Formalization of the Data Generation Process</h3>
+                    
+                    <p>
+                        We consider <em>thought</em> as latent random variables and <em>language</em> as tokens to express the realized random variables. When random variable $X$ takes value $x$, one token from the token set $\gL_{X=x}$ would be written down. $\gL_{X=x}$ is defined as the <em>expression</em> for $X=x$.
+                    </p>
+                    
+                    <h4 class="title is-5">Structural Causal Models</h4>
+                    
+                    <p>
+                        Suppose a set of latent variables $\mX = (X_1, \cdots, X_d) \sim P_{\mX}$. They follow a structural causal model specified by a directed acyclic causal graph $\gG = (\mX, \mE)$, where $\mE$ is the edge set. $\textbf{Pa}(X_i):=\{X_j \mid (j,i) \in \mE\}$ is the parent set. Each variable $X_i$ is defined by an assignment $X_i := f_i(\textbf{Pa}(X_i), N_i)$, where $\mN = (N_1, \cdots, N_d) \sim P_{\mN}$ are noise variables.
+                    </p>
+                    
+                    <div class="box has-text-centered my-5">
+                        <h4 class="title is-5">Running Example: Two-premise QA</h4>
+                        <p>
+                            Let $\mX = (C_1, C_2, A)$, and $\gG$ is $C_1 \rightarrow A \leftarrow C_2$. The token order $\pi$ has two possible choices, $(1,3,2)$ and $(1,2,3)$.
+                        </p>
+                    </div>
+                    
+                    <p>
+                        For each sample of $\mX = \vx$, a corresponding token sequence $\vl = (L_{\pi(1)}, \cdots, L_{\pi(d)})$ is generated, where $\pi$ represents the order of tokens. 
+                        Each token $L_i \in \gL_{X_i = x_i}$ is selected from the expression set, and the distribution of $L_i$ is conditioned on the value of previous tokens up to $\mL_{i-1}$ and latent variables $\mX$, reflecting alternative linguistic expressions tailored to the context.
+                        The order $\pi$ is sampled from multiple candidates, imitating the flexibility in linguistic structures (grammar or syntax) in sentences.
+                    </p>
+                    
+                    <h3 class="title is-4">How the Language-Thought Gap Influences the Reasoning Process</h3>
+                    
+                    <p>
+                        Despite the simplicity, two-premise QA generically models knowledge storage and extraction in LLMs, where $A$ can be considered as the knowledge to be stored and extracted.
+                        Essentially, two-premise QA can be easily generalized to various real-world downstream tasks. 
+                        To resolve the two-premise QA, one needs to determine the values of the two premises. For humans, since the language order does not determine the language meaning when given proper conjunction words, one can easily change <em>sentence structure</em> as needed.
+                    </p>
+                    
+                    <p>
+                        For example, one can use an order like $(C_1, C_2, A)$ or $(C_1, A, C_2)$ without affecting the underlying causal structures or the relations between <span style="color: blue;">$C_1$</span>, <span style="color: brown;">$C_2$</span> and <span style="color: magenta;">$A$</span>:
+                    </p>
+                    
+                    <div class="notification is-light my-3">
+                        "<span style="color: blue; text-decoration: underline;">increasing temperature ($C_1$)</span> leads to <span style="color: magenta; text-decoration: underline;">expansion in gas volume ($A$)</span> when <span style="color: brown; text-decoration: underline;">pressure is controlled ($C_2$)</span>."
+                    </div>
+                    
+                    <div class="notification is-light my-3">
+                        "<span style="color: blue; text-decoration: underline;">increasing temperature ($C_1$)</span> while <span style="color: brown; text-decoration: underline;">keeping pressure unchanged ($C_2$)</span> leads to <span style="color: magenta; text-decoration: underline;">expansion in gas volume ($A$)</span>."
+                    </div>
+                    
+                    <p>As we'll see, this simple rewriting preserves the meaning but can fool an LLM in the training phase.</p>
+                    
+                    <h4 class="title is-5">Training Phase</h4>
+                    
+                    <p>
+                        When the expression is not topological to the causal graph, e.g., the conclusion $A$'s causal parents $C_1, C_2$ are not all presented before itself, a language model with the next-token prediction objective tends to consider only the premise $C_1$ as the cause of $A$, instead of jointly considering both $C_1$ and $C_2$. In other words, language modeling based merely on the language can learn bias when the language presentation <em>does not follow the topological order</em>. 
+                        Non-topological language can enforce a language model to learn a biased logic, which we term as <em>biased reasoning</em>:
+                    </p>
+                    
+                    <div class="box my-4">
+                        <h5 class="title is-5">Proposition: Language-Modeling Bias</h5>
+                        <p>
+                            When encountering the natural language sentence in an anti-topological order, e.g., $(C_1, A, C_2)$, language modeling with the next-token prediction objective will yield an LLM to draw the conclusion with incomplete information $C_1$, i.e., $\Psi( L_A \mid L_1)$ is fitting a marginal distribution:
+                        </p>
+                        <div class="has-text-centered">
+                            $\begin{aligned}
+                                & \Pr ( L_A \mid L_1 ) \\
+                                = & \sum_{C_1, C_2, A} \frac{\Pr (L_1 \mid C_1) \cdot \Pr (C_1) } {\Pr (L_1)} \cdot \Pr (C_2) \cdot \Pr (A \mid C_1, C_2) \cdot \Pr (L_A \mid A, L_1) \\
+                                = & \sum_{C_1, C_2, A} \Pr (C_1 \mid L_1) \cdot \underbrace{\Pr (C_2)}_{\text{Bias from Marginal Distribution}} \cdot \Pr (A \mid C_1, C_2) \cdot\Pr (L_A \mid A, L_1)
+                            \end{aligned}$
+                        </div>
+                    </div>
+                    
+                    <h4 class="title is-5">Inference Phase</h4>
+                    
+                    <p>
+                        LLMs may not fully use a premise when it is expressed implicitly. The main intuition is that one piece of information can have different expressions in language. When a premise is expressed implicitly under a context, it's hard to notice and utilize for reasoning.
+                    </p>
+                    
+                    <p>
+                        For example, two sentences, <span style="background-color: #e6f7ff;">"Bob comes to the room"</span> and <span style="background-color: #e6f7ff;">"a man comes to the room"</span>, share gender information, but "Bob" emphasizes the name and expresses gender implicitly. Another example, in linear algebra, many statements have equivalences in different aspects, like conditions to be an eigenvalue or diagonalizability.
+                    </p>
+                    
+                    <p>
+                        Consider a task to predict $A$ with $(C_1=c^*_1, C_2=c^*_2)$. The task is described by $(L_1, L_2)$ with $L_i \in \mathcal{L}_{C_i=c^*_i}$.
+                        The prediction is done by a language model with $\Psi(A|L_1, L_2)$. The loss is usually measured by their cross entropy, and is equivalent to the Kullback–Leibler divergence $\KL \big( \Pr (A|c^*_1, c^*_2) \big| \big| \Psi(A|L_1, L_2) \big)$.
+                    </p>
+                    
+                    <div class="box my-4">
+                        <h5 class="title is-5">Theorem: Language-Thought Gap</h5>
+                        <p>
+                            Under this setting, assuming perfect knowledge for simplicity, i.e., 
+                            $\Psi ( A \mid C_1, C_2) = \Pr ( A \mid C_1, C_2) $, and assume Markov property for both distributions, i.e., $A$ is independent with others once $C_1,C_2$ are given. Then, it holds that:
+                        </p>
+                        <div class="has-text-centered">
+                            $\KL \ge \frac{\big[1-\Psi(c^*_1, c^*_2 \mid L_1, L_2) \big]^2}{2} \cdot \text{V}^2\Big( \Pr (A|c^*_1, c^*_2) \, , \, \Psi(A|L_1, L_2, C_1\neq c^*_2, C_2 \neq c^*_2)\Big)$
+                        </div>
+                        <p class="mt-2">
+                            where $\text{V}(p,q):=\sum_x |p(x) - q(x)|$ is the (non-normalized) variational distance between $p$ and $q$.
+                        </p>
+                    </div>
+                    
+                    <p>
+                        The variational distance term measures <em>the cost of totally misunderstanding</em>, while the term $\big(1-\Psi(c^*_1, c^*_2 \mid L_1, L_2) \big)^2$ measures <em>how well the task is understood by the language model</em>. The result means that even when the next-token predictor captures the correct relation between latent variables, it can exhibit biased reasoning with implicit expressions.
+                    </p>
+                    
+                    <h4 class="title is-5">Discussion and Understanding</h4>
+                    
+                    <p>
+                        In the aforementioned analysis, we focus on the two-premise QA example to explain the hypothesis about the intermediate mechanism between written language and thought in mind. As shown by the Language-Modeling Bias proposition, the language model learns to give shortcut reasoning when information is not complete. By the Language-Thought Gap theorem, we show that even if all information is expressed in the context, the shortcut reasoning can be triggered when the expression cannot be understood well.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section" id="verification">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 id="verification" class="title is-3" data-aos="fade-up">Verification: Prompt Intervention with Controlled Implicitness</h2>
+                
+                <div class="content has-text-justified" data-aos="fade-up" data-aos-delay="100">
+                    <p>
+                        In this section, we conduct experiments to support our hypothesis. The Kullback–Leibler divergence can be measured from accuracy, however, the question is how to measure $\Psi(c^*_1, c^*_2 | L_1, L_2)$. In practice, LLMs can only output the distribution for tokens, while $c^*_1$, $c^*_2$ are not. Therefore, we control the implicitness <em>qualitatively</em> by constructing a set of datasets where the information is either easy or hard to be understood.
+                    </p>
+                    
+                    <h4 class="title is-5">The two types of implicitness</h4>
+                    
+                    <p>
+                        Whether the language is well understood can be represented in $\Psi(c^*_1, c^*_2 | L_1, L_2) = \Psi(c^*_1 | L_1) \cdot \Psi(c^*_2 | L_1, L_2)$. In general case, the conditional $\Psi(c_i | L_1, \cdots, L_{i-1}, L_i)$ is based on two parts: its own expression $L_i \in \mathcal{L}_{C_i=c^*_i}$; and its previous context $q_i := \{L_1, \cdots, L_{i-1}\}$. Therefore, it motivates the following two types of implicitness:
+                    </p>
+                    
+                    <ol class="ml-6">
+                        <li>
+                            <strong>L-explicitness</strong>: the <em>local</em> confusion when whether $\Psi(C_i=c^*_i | L_i)$ is small;
+                        </li>
+                        <li>
+                            <strong>q-explicitness</strong>: the <em>global or contextual</em> confusion when $\Psi(C_i=c^*_i | q_i, L_i)$ is small.
+                        </li>
+                    </ol>
+                </div>
+                
+                <h3 class="title is-4 mt-5">The Control of Implicitness</h3>
+                
+                <div class="content has-text-justified">
+                    <p>
+                        To verify our conjecture, we further construct the <code>WinoControl</code> datasets based on the original WinoBias dataset. It consists of sentences about the interaction between two entities with 40 different occupations under certain contexts.
+                    </p>
+                    
+                    <p>
+                        For example, What does "she" refer to in <code>The manager promoted the housekeeper because she appreciated the dedication</code>?
+                        The same sentence would occur twice with different genders. Two types of sentences are designed: for type 1, one must utilize the understanding of the context; for type 2, one can utilize the syntactic cues to avoid ambiguity. We take Type 1 sentences for evaluation because they are much more challenging.
+                        In this task, $c_i$'s are the story context about two characters, while q's are other information like the gender-occupation inductive bias.
+                    </p>
+                    
+                    <h4 class="title is-5">Control L-explicitness</h4>
+                    
+                    <p>
+                        The original sentence is already difficult. So we make the story easier to identify the correct character. Three levels are designed:
+                    </p>
+                    
+                    <ol class="ml-6">
+                        <li>
+                            Add one sentence to exclude the wrong answer. In the previous example <code class="has-text-grey-dark">The [housekeeper (wrong answer)] ate one [fruit] because [he (the different pronoun)] likes it.</code> With this additional information, one can infer that "she" refers to "manager".
+                        </li>
+                        <li>
+                            Add one partially informative sentence to show that the correct answer is possible. For example: <code class="has-text-grey-dark">The {manager (correct answer)} ate one {fruit} because {she (the same pronoun)} likes it.</code> With this additional information, one can infer that "she" <em>could</em> refer to "manager".
+                        </li>
+                        <li>
+                            Insert no sentence.
+                        </li>
+                    </ol>
+                    
+                    <h4 class="title is-5">Control q-explicitness</h4>
+                    
+                    <p>
+                        To increase the q part, we add relevant but unhelpful sentences and mix them with other ones. We design three levels:
+                    </p>
+                    
+                    <ol class="ml-6">
+                        <li>Insert no sentence;</li>
+                        <li>We add two sentences with two different pronouns, with the template <code class="has-text-grey-dark">The [occupation] ate one [fruit] because [he/she] likes it</code>;</li>
+                        <li>Repeat the procedure in level 1 for more such sentences.</li>
+                    </ol>
+                </div>
+                
+                <h3 class="title is-4 mt-5">Prompt-level Intervention Scheme</h3>
+                
+                <div class="content has-text-justified">
+                    <p>
+                        To further verify our hypothesis, we need to show the performance drop is due to the understanding of problem but not the reasoning ability. Therefore, we design prompt-level intervention that encourage LLMs to understand the given information. We design one intervention for each type of implicitness.
+                    </p>
+                    
+                    <h4 class="title is-5">Echo Intervention for q-Implicitness</h4>
+                    
+                    <p>
+                        The key intuition is to encourage LLMs to figure out and focus on the key information that truly matters to the task. A prompt can be:
+                    </p>
+                    
+                    <div class="notification is-light has-text-centered">
+                        <em>(Think step by step.) <span style="background-color: #fffde7; padding: 2px 4px;">Let's <strong>observe</strong> and <strong>echo</strong> all the relevant information</span></em>
+                    </div>
+                    
+                    <h4 class="title is-5">Expanding Intervention for L-Implicitness</h4>
+                    
+                    <p>
+                        The key intuition is to encourage LLMs to make attempt to draw new expressions from $\mathcal{L}_{C_i=c^*_i}$, and can have chance to find more explicit ones:
+                    </p>
+                    
+                    <div class="notification is-light has-text-centered">
+                        <em>(Think step by step.) <span style="background-color: #fffde7; padding: 2px 4px;">Let's <strong>observe</strong> and <strong>expand</strong> all the relevant information</span></em>
+                    </div>
+                    
+                    <h4 class="title is-5">The Full Method</h4>
+                    
+                    <p>
+                        We propose the combined prompt-level intervention technique called Language of Thoughts (LoT).
+                        The theoretical motivation of LoT is to control both types of implicitness. The key idea is to decrease the $(1-\Psi(c^*_1, \cdots, c^*_i | L_1, \cdots, L_i))$ term. We evaluate two variants, LoT_1 and LoT_2 respectively, as follows:
+                    </p>
+                    
+                    <div class="notification is-light has-text-centered">
+                        <em><span style="background-color: #fffde7; padding: 2px 4px;">Please <strong>expand</strong> all the relevant information, and <strong>echo</strong> them based on the question</span></em>
+                    </div>
+                    
+                    <div class="notification is-light has-text-centered">
+                        <em><span style="background-color: #fffde7; padding: 2px 4px;">Please <strong>observe</strong>, <strong>expand</strong>, and <strong>echo</strong> all the relevant information based on the question</span></em>
+                    </div>
+                    
+                    <h4 class="title is-5">Practical Usage</h4>
+                    
+                    <p>
+                        The method is designed to mitigate $(1-\Psi(c^*_1, \cdots, c^*_i | L_1, \cdots, L_i))$. The success of the whole task also depends on $\Psi(A | c^*_1, \cdots, c^*_i)$. Therefore, the method (<span style="background-color: #fffde7; padding: 2px 4px;">highlighted part</span>) is expected to be combined with reasoning methods like Chain-of-Thought.
+                    </p>
+                </div>
+                
+                <h3 class="title is-4 mt-5">Evaluation on the WinoControl Dataset</h3>
+                
+                <div class="content has-text-justified">
+                    <div class="has-text-centered mb-5">
+                        <figure class="image">
+                            <a href="./static/paper_imgs/LoT/pattern-of-implicitness.png" data-lightbox="evaluation-figures" data-title="The accuracy patterns on the combos from L- and q-implicitness">
+                                <img src="./static/paper_imgs/LoT/pattern-of-implicitness.png" alt="Accuracy patterns on implicitness" style="max-width: 100%; margin: 0 auto; cursor: zoom-in;" data-aos="zoom-in">
+                            </a>
+                            <figcaption class="has-text-grey mt-2">
+                                Figure: The accuracy patterns on the combos from L- and q-implicitness. (a) Biased CoT from Implicitness, (b) <em>Echo</em> Intervention, (c) <em>Expand</em> Intervention
+                            </figcaption>
+                        </figure>
+                    </div>
+                    
+                    <div class="has-text-centered mb-5">
+                        <figure class="image">
+                            <a href="./static/paper_imgs/LoT/cost-corr-plot.png" data-lightbox="evaluation-figures" data-title="The performance gain from interventions has weak correlation with test-time computation">
+                                <img src="./static/paper_imgs/LoT/cost-corr-plot.png" alt="Performance gain vs computation correlation" style="max-width: 90%; margin: 0 auto; cursor: zoom-in;" data-aos="zoom-in">
+                            </a>
+                            <figcaption class="has-text-grey mt-2">
+                                Figure: The performance gain from interventions has weak correlation with test-time computation. (a) <em>Echo</em> Intervention, (b) <em>Expand</em> Intervention
+                            </figcaption>
+                        </figure>
+                    </div>
+                    
+                    <h4 class="title is-5">Empirical Setting</h4>
+                    
+                    <p>
+                        We test different prompt methods with <code>gpt-4o-mini-2024-07-18</code>.
+                        For <em>CoT</em> method, it is <code>Let's think step by step.</code>
+                        For <em>LoT</em>-series methods, we use <em>Expand</em> prompt and <em>Echo</em> prompt separately for verification. The others will be evaluated in next section.
+                    </p>
+                    
+                    <h4 class="title is-5">Is there a correlation between implicitness and performance?</h4>
+                    
+                    <p>
+                        As shown in the figure (a), the row and columns represent the level of L- and q- implicitness respectively. The accuracy of CoT would decrease with q- or L- level when the other one is fixed. In the upper-right corner, because we set L-level to zero by adding more helpful sentences, their effect can be slightly influenced when mixed with unhelpful ones. In general, the pattern is clear and consistent to our proposition.
+                    </p>
+                    
+                    <h4 class="title is-5">Does each intervention helps to reduce the corresponding implicitness?</h4>
+                    
+                    <p>
+                        In the figure (b) and (c), we report and accuracy improvement under interventions w.r.t. CoT in (a). Comparing (b) and (c), as circled by red dashed lines, <code>Echo</code> has better performance than <code>Expand</code> in the upper right triangle, where q-implicitness is higher; Similarly, <code>Expand</code> is more effective in the bottom left when L-implicitness is higher. The patterns are consistent with our discussion.
+                    </p>
+                    
+                    <h4 class="title is-5">Is the improvements from more token cost?</h4>
+                    
+                    <p>
+                        In our token cost analysis figure, there is no significant correlation between interventions' improvement and additional token cost.
+                        Interestingly, <code>Echo</code> costs fewer tokens and is better than <code>CoT</code>.
+                    </p>
+                    
+                    <h4 class="title is-5">Comparison to related work</h4>
+                    
+                    <p>
+                        The observation in figure (a) is also consistent with literature on LLMs' failure mode. For example, the performance can be influenced by the order of premises in deductive tasks or by irrelevant context in math tasks. These failure modes can be explained by our proposition as they raised the $(1-\Psi(c^*_1, \cdots, c^*_i | L_1, \cdots, L_i))$ term in the lower bound. Our contribution is non-trivial given the formalization and understanding in earlier sections and detailed construction and interventions presented here.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="section" id="evaluation">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 id="evaluation" class="title is-3" data-aos="fade-up">Further Evaluation on Designed Benchmarks</h2>
+                
+                <div class="content has-text-justified" data-aos="fade-up" data-aos-delay="100">
+                    <p>
+                        In this section, we conduct further evaluation with 4 strong baselines by 4 widely-used LLMs in 1 math benchmark and 2 social bias benchmarks that are designed to test LLMs' specific abilities. The ablation study is done for each of them.
+                    </p>
+                    
+                    <h4 class="title is-5">Evaluation Setting</h4>
+                    
+                    <p>
+                        For each benchmark, we evaluate two LoT variants, as well as the <em>Echo</em> and <em>Expand</em> interventions as ablation study. 
+                        For baselines, we use <em>CoT</em>, <em>RaR</em>, and Least-to-Most (LtM) Prompting. We also construct <em>RaR+CoT</em> by combing <em>RaR</em> prompt with <em>CoT</em> in the same way as the four LoT series methods for more carefully controlled comparison.
+                        For LLMs, we use four well-known models: DeepSeek-V3, GPT-4o-mini, Qwen-2-72B-Instruct, and Llama-3.1-70B-Instruct-Trubo.
+                    </p>
+                    
+                    <h4 class="title is-5">Results on WinoBias benchmark</h4>
+                    
+                    <p>
+                        We use the original WinoBias dataset that has been introduced earlier. The main metric is the consistency (<em>Con</em>) between different pronouns. We also report the accuracy in each stereotype case (<em>Anti</em> and <em>Pro</em>), and their absolute difference (<em>Delta</em>).
+                    </p>
+                    
+                    <div class="has-text-centered mb-5">
+                        <figure class="image">
+                            <a href="./static/paper_imgs/LoT/winobias_results.png" data-lightbox="tables" data-title="Results on the WinoBias Benchmark">
+                                <img src="./static/paper_imgs/LoT/winobias_results.png" alt="WinoBias Results" style="max-width: 100%; margin: 0 auto; cursor: zoom-in;" data-aos="zoom-in">
+                            </a>
+                            <figcaption class="has-text-grey mt-2">
+                                <b>Table 1:</b> Results on the WinoBias Benchmark. The table shows performance across four LLMs with different prompting methods.
+                            </figcaption>
+                        </figure>
+                    </div>
+                    
+                    <p>
+                        As shown in the table, <em>RaR+CoT</em> enhances the <em>CoT</em> method in DeepSeek. The two LoT methods get best or second-best performance in most cases. LoT_2 is slightly better than LoT_1.
+                        For ablation, one can observe that <em>Expand</em> is generally better than <em>Echo</em> and <em>CoT</em>, indicating the improvement is mainly on L-implicitness.
+                    </p>
+                    
+                    <h4 class="title is-5">Evaluation on the BBQ benchmark</h4>
+                    
+                    <p>
+                        The BBQ benchmark consists of a set of question-answering problems. Each problem provides a specific context related to one typical stereotype.
+                        We use three bias types: Age, Nationality, and Religion, whose zero-shot direct-answering accuracy are worst, as shown by our pilot experiment.
+                    </p>
+                    
+                    <div class="has-text-centered mb-5">
+                        <figure class="image">
+                            <a href="./static/paper_imgs/LoT/bbq_results.png" data-lightbox="tables" data-title="Results on the BBQ benchmark">
+                                <img src="./static/paper_imgs/LoT/bbq_results.png" alt="BBQ Results" style="max-width: 100%; margin: 0 auto; cursor: zoom-in;" data-aos="zoom-in">
+                            </a>
+                            <figcaption class="has-text-grey mt-2">
+                                <b>Table 2:</b> Results on the BBQ benchmark showing performance across different bias types and LLMs.
+                            </figcaption>
+                        </figure>
+                    </div>
+                    
+                    <p>
+                        Results show that <em>Direct</em> prompting is quite strong in DeepSeek-V3. <em>RaR+CoT</em> enhances the <em>CoT</em> method in the GPT model. LoT_2 obtains better performance than the five baselines in 11 out of 12 cases, and second best for Nationality Bias in Qwen model. LoT_1 is better than all five baselines in 3 cases and second best in 6 cases. 
+                        For ablation, <em>Echo</em> is significantly better than <em>Expand</em> and <em>CoT</em> in all cases, indicating the strong q-implicitness.
+                    </p>
+                    
+                    <h4 class="title is-5">Results on Alice benchmark</h4>
+                    
+                    <p>
+                        Alice Benchmark is a set of simple yet challenging math problems. The question is quite simple: <code>Alice has N brothers and she also has M sisters. How many sisters does Alice's brother have?</code>, and the correct answer is M+1 while the common wrong answer is M.
+                        Following their template, we go through N, M∈[10] to get 100 questions. We then use another template <code>Alice has M sisters and she also has N brothers</code> for 200 ones in total.
+                    </p>
+                    
+                    <div class="has-text-centered mb-5">
+                        <figure class="image">
+                            <a href="./static/paper_imgs/LoT/alice_results.png" data-lightbox="tables" data-title="Results on the Alice benchmark across different models">
+                                <img src="./static/paper_imgs/LoT/alice_results.png" alt="Alice Results" style="max-width: 85%; margin: 0 auto; cursor: zoom-in;" data-aos="zoom-in">
+                            </a>
+                            <figcaption class="has-text-grey mt-2">
+                                <b>Table 3:</b> Results on the Alice benchmark across different models.
+                            </figcaption>
+                        </figure>
+                    </div>
+                    
+                    <p>
+                        In the results, all methods perform well in DeepSeek-V3. <em>RaR+CoT</em> enhances the <em>CoT</em> method in GPT and Qwen. LoT methods are second best for Llama and best for other two models, improving CoT by 8% in GPT-4o-mini and by 43.5% in Qwen.
+                        For variants, LoT_1 is better in half of the models. For ablation, <em>Expand</em> method is significantly better in all cases, indicating strong L-implicitness.
+                    </p>
+                    
+                    <h4 class="title is-5">Case study and intuitive understanding</h4>
+                    
+                    <p>
+                        The two prompt-level interventions, <em>Echo</em> and <em>Expand</em>, can have failure cases, limited by the Language-Thought Gap. Here we discuss when they would succeed or fail, with examples from WinoBias and BBQ benchmark.
+                    </p>
+                    
+                    <div class="box my-4">
+                        <p>
+                            <strong><em>Echo</em></strong>, aiming to eliminate q-implicitness, can sometimes fail due to L-implicitness. 
+                            In the WinoBias example, which has strong L-implicitness as we discussed above, it gives a statement "The <em>mechanic</em> then offered some books" which is misleading.
+                        </p>
+                        
+                        <p>
+                            Similarly, <strong><em>Expand</em></strong> failed to capture the ill-post of question in the BBQ example, which has strong q-implicitness as we discussed above, and is misled to resort to additional assumptions.
+                        </p>
+                        
+                        <p>
+                            When putting the two components together, they can be mutually beneficial. 
+                            In the BBQ example, <em>LoT</em> also considered using "age bias", but is corrected by noticing the ill-post nature. In the WinoBias example, <em>LoT</em> first augments the content by "the mechanic is providing a service", then it states the "<em>He</em> then offered some books" correctly.
+                        </p>
+                    </div>
+                    
+                    <div class="has-text-centered mb-5">
+                        <figure class="image">
+                            <a href="./static/paper_imgs/LoT/case_study.png" data-lightbox="evaluation-figures" data-title="Case studies of different methods on WinoBias and BBQ examples">
+                                <img src="./static/paper_imgs/LoT/case_study.png" alt="Case Study Examples" style="max-width: 100%; margin: 0 auto; cursor: zoom-in;" data-aos="zoom-in">
+                            </a>
+                            <figcaption class="has-text-grey mt-2">
+                                <b>Figure 2:</b> Case studies showing examples of how different methods handle WinoBias and BBQ examples.
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section class="section" id="BibTeX">
+        <!-- Contact and BibTeX -->
+        <section class="section" id="BibTeX" data-aos="fade-up">
             <div class="container is-max-desktop content">
                 <h2 class="title">Contact</h2>
                 <p>
@@ -490,17 +1043,38 @@ American Coastal Region. We refer details in the paper's Appendix K.
                 <p>
                     If you find our paper and repo useful, please consider to cite:
                 </p>
-                <pre>
-                    <code>
-@inproceedings{causalcoat2024,
-    title={Discovery of the Hidden World with Large Language Models}, 
-    author={Chenxi Liu and Yongqiang Chen and Tongliang Liu and Mingming Gong and James Cheng and Bo Han and Kun Zhang},
-    year={2024},
-    booktitle={Proceedings of the Thirty-eighth Annual Conference on Neural Information Processing Systems}
-}
-                    </code>
-                </pre>
-                <br>
+                <div class="box" style="background-color: #f8f9fa; border-left: 4px solid #204080;">
+                    <pre style="background-color: transparent; padding: 0;">
+<code>will update once it is ready.</code>
+                    </pre>
+                    <div class="buttons is-centered mt-3">
+                        <button class="button is-small is-rounded" onclick="copyBibTeX()">
+                            <span class="icon is-small">
+                                <i class="fas fa-copy"></i>
+                            </span>
+                            <span>Copy BibTeX</span>
+                        </button>
+                    </div>
+                </div>
+                <script>
+                    function copyBibTeX() {
+                        const bibTeX = `@inproceedings{
+liu2025language,
+title={On the Language of Thoughts in Large Language Models},
+author={Chenxi Liu and Yongqiang Chen and Tongliang Liu and James Cheng and Bo Han and Kun Zhang},
+booktitle={Reasoning and Planning for LLMs @ ICLR},
+year={2025}
+}`;
+                        navigator.clipboard.writeText(bibTeX).then(() => {
+                            const button = document.querySelector('.buttons.is-centered .button');
+                            const originalText = button.innerHTML;
+                            button.innerHTML = '<span class="icon is-small"><i class="fas fa-check"></i></span><span>Copied!</span>';
+                            setTimeout(() => {
+                                button.innerHTML = originalText;
+                            }, 2000);
+                        });
+                    }
+                </script>
             </div>
         </section>
         <footer class="footer">
@@ -527,3 +1101,141 @@ American Coastal Region. We refer details in the paper's Appendix K.
                 </div>
             </div>
         </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 汉堡菜单功能
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+
+            // 滚动时导航栏样式变化
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('has-shadow');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.97)';
+                } else {
+                    navbar.classList.remove('has-shadow');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+                }
+            });
+
+            // 返回顶部按钮功能
+            const backToTopButton = document.getElementById("back-to-top");
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 300) {
+                    backToTopButton.style.display = "block";
+                } else {
+                    backToTopButton.style.display = "none";
+                }
+            });
+            
+            backToTopButton.addEventListener("click", function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navbarHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 初始化AOS动画
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 200
+            });
+
+            if(window.MathJax && MathJax.startup) {
+            MathJax.startup.defaultReady();
+            MathJax.startup.promise.then(() => {
+                MathJax.typesetPromise();
+            });
+            }
+        });
+    </script>
+
+    <!-- 页面加载进度条脚本 -->
+    <script>
+        // 页面加载进度条
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('page-loader');
+            let width = 0;
+            const interval = setInterval(function() {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    setTimeout(function() {
+                        loader.style.opacity = '0';
+                        setTimeout(function() {
+                            loader.style.display = 'none';
+                        }, 300);
+                    }, 500);
+                } else {
+                    width = Math.min(width + (100 - width) / 10, 95);
+                    loader.style.width = width + '%';
+                }
+            }, 100);
+            
+            window.addEventListener('load', function() {
+                loader.style.width = '100%';
+                setTimeout(function() {
+                    loader.style.opacity = '0';
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 300);
+                }, 500);
+            });
+        });
+    </script>
+
+    <!-- 返回顶部按钮脚本 -->
+    <script>
+        // 显示或隐藏返回顶部按钮
+        const backToTopButton = document.getElementById('back-to-top');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        };
+
+        // 点击返回顶部按钮时平滑滚动到顶部
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    </body>
+</html>
