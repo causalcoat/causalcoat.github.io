@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!-- TypeIt package -->
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Does Representation Intervention Really Identify Desired Concepts and Elicit Alignment?">
+        <meta name="keywords" content="JailBreak, LLM, Security">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Does Representation Intervention Really Identify Desired Concepts and Elicit Alignment? </title>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK2R9XDD88"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'G-MK2R9XDD88');
+        </script>
+        <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+        <link rel="stylesheet" href="./static/css/bulma.min.css">
+        <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+        <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+        <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+        <link rel="stylesheet" href="./static/css/index.css">
+        <link rel="icon" href="./static/images/causalcoat.webp">
+        <link rel="stylesheet" href="./static/css/project-nav.css"> 
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script defer src="./static/js/fontawesome.all.min.js"></script>
+        <script src="./static/js/bulma-carousel.min.js"></script>
+        <script src="./static/js/bulma-slider.min.js"></script>
+        <script src="./static/js/index.js"></script>
+        
+        
+        <!-- Typing Effect JS -->
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.10.1/typeit.min.js"></script>
+        <!-- / Typing Effect JS -->
+        <style>
+            .bigdiv {
+                font-size: large;
+                font-family: "Courier New";
+                padding: 2rem;
+            }
+            p {
+                padding: 2rem;
+            }
+        </style>
+
+        <!-- 添加导航脚本 -->
+        <script src="./static/js/project-nav.js"></script>
+
+        <!-- MathJax v3 CDN -->
+        <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          }
+        };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container is-max-desktop">
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h1 class="title is-1 publication-title">Does Representation Intervention Really Identify Desired Concepts and Elicit Alignment?</h1>
+                            <div class="is-size-5 publication-authors">
+                                <span class="author-block">
+                                    <a href="">Hongzheng Yang</a>
+                                    <sup>1*</sup>
+                                    ,
+                                </span>
+                                <span class="author-block">
+                                    <a href="https://lfhase.win">Yongqiang Chen</a>
+                                    <sup>2,3*</sup>
+                                    ,
+                                </span>
+                                <span class="author-block">
+                                    <a href="">Zeyu Qin</a>
+                                    <sup>4</sup>
+                                    ,
+                                </span>
+                                <span class="author-block">
+                                    <a href="https://tongliang-liu.github.io/">Tongliang Liu</a>
+                                    <sup>5,2</sup>
+                                    ,
+                                </span>
+                                <br>
+                                <span class="author-block">
+                                    <a href="https://xiaocw11.github.io/">Chaowei Xiao</a>
+                                    <sup>6</sup>
+                                    ,
+                                </span>
+                                <span class="author-block">
+                                    <a href="https://www.andrew.cmu.edu/user/kunz1/index.html">Kun Zhang</a>
+                                    <sup>2,3</sup>
+                                    ,
+                                </span>
+                                <span class="author-block">
+                                    <a href="https://bhanml.github.io/">Bo Han</a>
+                                    <sup>1</sup>
+                                    ,
+                                </span>
+                            </div>
+                            <div class="is-size-5 publication-authors">
+                                <span class="author-block">
+                                    <sup>1</sup>Hong Kong Baptist University,
+                                </span>
+                                <br>
+                                <span class="author-block">
+                                    <sup>2</sup>MBZUAI,
+                                </span>
+                                <span class="author-block">
+                                    <sup>3</sup>Carnegie Mellon University
+                                </span>
+                                <span class="author-block">
+                                    <sup>4</sup>Hong Kong University of Science and Technology,
+                                </span>
+                                <span class="author-block">
+                                    <sup>5</sup>The University of Sydney,
+                                </span>
+                                <span class="author-block">
+                                    <sup>6</sup>University of Wisconsin, Madison,
+                                </span>
+                            </div>
+                            <div class="is-size-5 publication-authors">
+                                <span class="author-block" style="font-size: 15px;">(
+                                    <sup>*</sup>Equal Contribution)
+                                </span> 
+                            </div>
+                            <div class="column has-text-centered">
+                                <div class="publication-links">
+                                    <!-- PDF Link. -->
+                                    <span class="link-block">
+                                        <a href="https://arxiv.org/abs/2505.18672" class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                                <i class="fas fa-file-pdf"></i>
+                                            </span>
+                                            <span>Paper</span>
+                                        </a>
+                                    </span>
+                                    <!-- Code Link. -->
+                                    <span class="link-block">
+                                        <a href="https://causalcoat.github.io/coat.html" class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                                <i class="fab fa-github"></i>
+                                            </span>
+                                            <span>Code</span>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- <div style="color: rgb(32, 64, 128);">
+                                <i>Accepted at <a style="color: rgb(32, 64, 128);font-weight: bold; text-decoration: underline;" href="https://neurips.cc/virtual/2024/poster/93175">NeurIPS 2024</a></i>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- <div class="content has-text-centered">
+              <img src="./static/images/causalcoat.webp" style="width:200px;">
+            </div> -->
+            <section class="section">
+                <div class="container is-max-desktop">
+                    <!-- Abstract. -->
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column is-four-fifths">
+                            <h2 class="title is-3">Abstract</h2>
+                            <div class="content has-text-justified">
+                                <p>
+                                Representation intervention aims to locate and modify the representations that encode the underlying concepts in Large Language Models (LLMs) to elicit the aligned and expected behaviors. 
+                                Despite the empirical success, it has never been examined whether one could locate the faithful concepts for intervention. In this work, we explore the question in safety alignment. 
+                                If the interventions are faithful, the intervened LLMs should erase the harmful concepts and be robust to both in-distribution adversarial prompts and the out-of-distribution (OOD) jailbreaks.
+                                While it is feasible to erase harmful concepts without degrading the benign functionalities of LLMs in linear settings, we show that it is infeasible in the general non-linear setting. To tackle the issue, we propose Concept Concentration (COCA). 
+                                Instead of identifying the faithful locations to intervene, COCA refractors the training data with an explicit reasoning process, which firstly identifies the potential unsafe concepts and then decides the responses. 
+                                Essentially, COCA simplifies the decision boundary between harmful and benign representations, enabling more effective linear erasure. 
+                                Extensive experiments with multiple representation intervention methods and model architectures demonstrate that COCA significantly reduces both in-distribution and OOD jailbreak success rates, and meanwhile maintaining strong performance on regular tasks such as math and code generation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Abstract. -->
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="container is-max-desktop">
+                    <!-- Abstract. -->
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column is-four-fifths">
+                            <h2 class="title is-3">COCA Framework</h2>
+                            <div class="content has-text-justified">
+                                <!-- Add image -->
+                                <div class="figure" style="align: left; text-align:center;">
+                                    <img
+                                        src="./static/paper_imgs/coat/fig_method.png"
+                                        alt="img description"
+                                        style="max-width: 100%; height: auto;"
+                                    >
+                                    <p class="content is-centered" style="color: gray; font-size: 10pt;">
+                                        <b>Figure 1</b>. Illustration of the LeGI framework.
+                                    </p>
+                                </div>
+                                An illustration of COCA: As representation intervention fails to faithfully localize and control the harmful behaviors of LLMs, we resort to reasoning-based approaches and present COCA. 
+                                COCA refactors the training responses into structured formats to prompt LLMs to explicitly reason for the underlying harmful concepts, and then to respond correspondingly. 
+                                LLMs trained with the refactored data demonstrate significant robustness against both in-distribution and OOD jailbreaking attacks.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Abstract. -->
+            </div>
+        </section>
+        <section class="section">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column is-full-width has-text-centered">
+                        <h2 class="title is-3">The Faithfulness Gap in Non-Linear Concept Erasure</h2>
+                        <br>
+                        We formalize harmful concept erasure via a classification framework. In the $k$-class classification task over $X \in \mathbb{R}^d$ with one-hot labels $Z \in \{0,1\}^k$, each label corresponds to a concept, where we assume that harmful concepts form a subset of these classes. 
+Let $\eta(\cdot; \theta)$ be a predictor chosen from a function class $\mathcal{V} = \{\eta(\cdot; \theta) \mid \theta \in \Theta\}$, trained to minimize the expected loss $\mathbb{E}\left[L\left(\eta(X), Z\right)\right]$ for a loss function $L$. The goal is to modify the representation $v_X = f(X)$ via a transformation $r: \mathbb{R}^d \to \mathbb{R}^d$, such that the modified representation $r(v_X)$ becomes independent of the harmful components of $Z$.                        <div class="content  has-text-justified">
+                            <div class="theorem">
+                                <b>Theorem (Impossibility of Perfect Non-linear Concept Erasure).</b>
+                                <br>
+                                Let \( v_X \in \mathbb{R}^d \) be a random vector with finite second moment, and let \( v_Z \in \mathbb{R}^k \) be a categorical random vector such that \( I(v_X;v_Z) > 0 \) (i.e., \( v_X \) and \( v_Z \) are statistically dependent). Define the distortion measure for an arbitrary function \( r: \mathbb{R}^d \to \mathbb{R}^d \) by
+                                \[
+                                    J(r) = \mathbb{E}\|r(v_X)-v_X\|_M^2
+                                \]
+                                with \( M \in \mathbb{R}^{d \times d} \) a fixed positive semidefinite matrix. Consider the set
+                                \[
+                                    \mathcal{R} = \{ r : \mathbb{R}^d \to \mathbb{R}^d \mid r(v_X) \text{ is independent of } v_Z \}
+                                \]
+                                then any nonconstant function \( r \in \mathcal{R} \) satisfies
+                                \[
+                                    J(r) > J\bigl(\mathbb{E}[v_X]\bigr) = \mathbb{E}\|v_X-\mathbb{E}[v_X]\|_M^2.
+                                \]
+                                That is, the minimal distortion among functions that ensure independence is achieved by the constant function, which erases all useful information in \( X \). Therefore, there is no nonconstant function in \( \mathcal{R} \) that can perfectly erase harmful concepts while preserving benign information.
+                            </div>   
+                            
+                        </div>              
+        </section>
+        <section class="section">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column is-full-width has-text-centered">
+                        <h2 class="title is-3">Safety Evaluation</h2>
+                        <div class="content has-text-justified is-centered">
+                            <p>
+                                The model's safety robustness is evaluated against six types of attacks. For in-distribution (ID) attacks, we test illegal instructions derived from Do-Not-Answer, HarmBench and toxic chat from WildChat. For out-of-distribution (OOD) attacks, we evaluate the model against challenges from JailbreakingChat, SelfCipher, Code Attack, Completion Attack, PAIR and jailbreak version for the WildChat toxic prompts.                            </p>
+                        </div>
+                        <div class="content has-text-centered">
+                            <img
+                                src="./static/paper_imgs/coat/safety.jpg"
+                                style="max-width: 60%; height: auto;"
+                            >
+                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
+                                <b>Table 1</b>. In-distribution (ID) and jailbreak attack success rates (%, lower is better).
+                            </p>
+                        </div>
+                        <div class="content has-text-centered">
+                            <img
+                                src="./static/paper_imgs/coat/combined_instruction_representations_16.png"
+                                style="max-width: 100%; height: auto;"
+                            >
+                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
+                                <b>Figure 2</b>. PCA visualization of instruction internal representations at layer 16 for LLaMA-3.1-8B..
+                            </p>
+                            <b>Impact of Explicit Concept Reasoning.</b>
+                            To evaluate the importance of explicit concept reasoning, we conduct an ablation study where the reasoning annotations are replaced with a fixed, and generic concept for all unsafe prompts (e.g., "violation of ethical guidelines").
+                            This simplification leads to an increase in attack success rate, on all jailbreak prompts. The results confirm that explicit concept reasoning is a necessary component.
+                        </div>
+                        <br>
+                         <div class="content has-text-centered">
+
+                            <img
+                                src="./static/paper_imgs/coat/component_00.png"
+                                style="max-width: 60%; height: auto;"
+                            >
+                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
+                                <b>Figure 3</b>. Impact of concept reasoning components on jailbreak attack success rate (lower is better) for LLaMA-3.1-8B.  
+                                Comparison between Enhanced Data, Enhanced Data with Fixed Concept, and Enhanced Data with Fixed Thinking across different jailbreak attack types.
+                            </p>
+                            <b>Over-refuse Evaluation:</b>
+                            We further evaluate the over-refusal rate using 250 safe prompts from XsTesT. The over-refusal rate is measured by pattern matching refusal-related tokens in responses of safe prompts. Models trained with enhanced data achieve reductions in both metrics. For Qwen-2.5-7B, the over-refusal rate drops from 32.8% (vanilla) to 21.2% (enhanced), while the attack success rate decreases from 40.0% to 16.8%.</div>
+                        <br>
+                        <div class="content has-text-centered">
+                            <img
+                                src="./static/paper_imgs/coat/overrefusal_attack_success_00.png"
+                                style="max-width: 60%; height: auto;"
+                            >
+                            <p class="content is-centered" style="color: gray; font-size: 10pt;">
+                                <b>Figure 4</b>. Comparison of over-refusal and attack success rate for models trained on Vanilla and Enhanced data.
+                            </p>
+                            <b>Comparison with Proprietary LLMs:</b>
+                            We compare the jailbreak attack success rates of proprietary models (GPT-4o, Claude-3.7-sonnet, Gemini-1.5-pro, and DeepSeek-R1) and open-source models trained with COCA. 
+                            COCA achieves competitive performance with proprietary models. The LLaMA-3.1-8B model trained with enhanced data achieves attack success rates of 17.1% on PAIR, 5.5% on JChat, and 2.5% on Cipher, with an average success rate of 10.5%. 
+                            
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column is-full-width has-text-centered">
+                        <h2 class="title is-3">Conclusion</h2>
+                        <div class="content has-text-justified">
+                            <p>
+                                We introduced a new framework for safety alignment by treating it as a harmful concept erasure problem. 
+                                Our theoretical analysis shows that in non-linear settings, perfect concept erasure is fundamentally infeasible without losing benign functionality. Empirical evidence supports this, as jailbreak and benign prompts frequently form non-linear boundaries in the representation space. To overcome this, we proposed a method that restructures training data via explicit concept reasoning. This process reshapes the representation space, making the harmful concepts concentrate into linear subspace and thus allowing for more effective erasure using linear editing techniques. Through extensive experiments across various models, we demonstrated that our approach improves jailbreak refusal without degrading model helpfulness. This work provides both a theoretical foundation and practical method for advancing the safety alignment in large language models.
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="BibTeX">
+            <div class="container is-max-desktop content">
+                <h2 class="title">Contact</h2>
+                <p>
+                    Welcome to check our paper for more details of the research work. For any question, please feel free to contact us.
+                </p>
+                <p>
+                    If you find our paper and repo useful, please consider to cite:
+                </p>
+                <pre>
+                    <code>
+@inproceedings{does2025,
+    title={Does Representation Intervention Really Identify Desired Concepts and Elicit Alignment?},
+    author={Hongzheng Yang and Yongqiang Chen and Zeyu Qin and Tongliang Liu and Chaowei Xiao and Kun Zhang and Bo Han},
+    year={2025},
+    url={https://arxiv.org/abs/2505.18672}
+    }
+                    </code>
+                </pre>
+                <br>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+                <div class="columns is-centered">
+                    <div class="column is-8">
+                        <div class="content">
+                            <p>
+                                Thanks for the source template from
+                                <a href="https://github.com/nerfies/nerfies.github.io">here</a>
+                                .
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:1em;">
+              <a href="https://hits.seeyoufarm.com">
+                <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcausalcoat.github.io%2Fcoat.html&count_bg=%2379C83D&title_bg=%23555555&icon=googleanalytics.svg&icon_color=%23E7E7E7&title=views&edge_flat=false"/>
+              </a>
+            </div>
+        </footer>
