@@ -14,6 +14,11 @@ const projectList = [
         url: "https://causalcoat.github.io/lot.html",
         icon: "fa-link"
     },
+    {
+        title: "Does Representation Intervention Really Identify Desired Concepts and Elicit Alignment?",
+        url: "https://causalcoat.github.io/coca.html",
+        icon: "fa-link"
+    },
     // 可以在这里添加更多项目
 ];
 
