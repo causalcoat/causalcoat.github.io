@@ -1,0 +1,19 @@
+<!-- Generated from COAT-Learn/docs; edit the source, then run build.py. -->
+
+- [概览](/zh-cn/)
+- 学习
+  - [理解 COAT](/zh-cn/concepts.md)
+  - [第一个分析](/zh-cn/quickstart.md)
+- 完成具体工作
+  - [准备数据](/zh-cn/data.md)
+  - [连接模型](/zh-cn/models.md)
+  - [部署本地 Kev](/zh-cn/kev.md)
+  - [标注因子](/zh-cn/annotation.md)
+  - [分析测量表与图](/zh-cn/causality.md)
+  - [通过代理使用](/zh-cn/agents.md)
+- 参考
+  - [发现接口](/zh-cn/discovery.md)
+  - [配置](/zh-cn/configuration.md)
+  - [结果](/zh-cn/results.md)
+  - [包结构](/zh-cn/architecture.md)
+  - [本地依赖](/zh-cn/troubleshooting.md)

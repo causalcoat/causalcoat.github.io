@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover and measure useful factors in unstructured data, then study causal structure and intervention effects with coatlearn.">
+  <title>coatlearn documentation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+<body>
+  <div id="app">Loading coatlearn documentation…</div>
+  <script>
+    window.$docsify = {
+      name: 'coatlearn',
+      homepage: 'README.md',
+      loadSidebar: true,
+      loadNavbar: true,
+      relativePath: true,
+      auto2top: true,
+      subMaxLevel: 2,
+      mergeNavbar: true,
+      nameLink: {'/zh-cn/': '#/zh-cn/', '/': '#/'},
+      noCompileLinks: ['\\.toml$', '\\.csv$', '\\.sh$'],
+      markdown: {
+        renderer: {
+          link: function (href, title, text) {
+            var current = window.location.hash.slice(1).split('?')[0] || '/';
+            if (href.startsWith('/')) return this.origin.link.apply(this, arguments);
+            var destination = new URL(href, new URL('docs' + current, 'https://local.invalid/'));
+            if (destination.origin === 'https://local.invalid' && !destination.pathname.startsWith('/docs/')) {
+              var target = destination.pathname.replace(/^\//, '') + destination.hash;
+              return '<a href="' + new URL('../' + target, window.location.href.split('#')[0]).href + '" target="_blank" rel="noopener">' + text + '</a>';
+            }
+            return this.origin.link.apply(this, arguments);
+          }
+        }
+      },
+      alias: {
+        '/zh-cn/.*_sidebar.md': '/zh-cn/_sidebar.md',
+        '/zh-cn/.*_navbar.md': '/zh-cn/_navbar.md',
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_navbar.md': '/_navbar.md'
+      },
+      plugins: [function (hook, vm) {
+        hook.doneEach(function () {
+          document.documentElement.lang = vm.route.path.startsWith('/zh-cn/') ? 'zh-CN' : 'en';
+        });
+      }]
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-toml.min.js"></script>
+</body>
+</html>
