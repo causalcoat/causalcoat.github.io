@@ -5,13 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Discover and measure useful factors in unstructured data, then study causal structure and intervention effects with coatlearn.">
   <title>coatlearn documentation</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <meta name="theme-color" content="#f7f7f2">
+  <link rel="stylesheet" href="assets/vendor/docsify-vue.css">
+  <link rel="stylesheet" href="assets/docs.css">
 </head>
 <body>
   <div id="app">Loading coatlearn documentation…</div>
   <script>
     window.$docsify = {
-      name: 'coatlearn',
+      name: 'COAT-Learn',
+      search: {
+        paths: 'auto',
+        namespace: 'coatlearn-docs-v1',
+        pathNamespaces: ['/zh-cn'],
+        maxAge: 86400000,
+        depth: 3,
+        hideOtherSidebarContent: true,
+        placeholder: {'/zh-cn/': '搜索中文文档…', '/': 'Search English docs…'},
+        noData: {'/zh-cn/': '没有找到结果。试试更短的词语或函数名。', '/': 'No results. Try a shorter term or a function name.'}
+      },
+      copyCode: {
+        buttonText: {'/zh-cn/': '复制', '/': 'Copy'},
+        successText: {'/zh-cn/': '已复制', '/': 'Copied'},
+        errorText: {'/zh-cn/': '请手动复制', '/': 'Select and copy'}
+      },
+      pagination: {
+        previousText: {'/zh-cn/': '上一篇', '/': 'Previous'},
+        nextText: {'/zh-cn/': '下一篇', '/': 'Next'},
+        crossChapter: true,
+        crossChapterText: false
+      },
       homepage: 'README.md',
       loadSidebar: true,
       loadNavbar: true,
@@ -48,9 +71,13 @@
       }]
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-toml.min.js"></script>
+  <script src="assets/docs.js"></script>
+  <script src="assets/vendor/docsify.min.js"></script>
+  <script src="assets/vendor/docsify-search.min.js"></script>
+  <script src="assets/vendor/docsify-copy-code.min.js"></script>
+  <script src="assets/vendor/docsify-pagination.min.js"></script>
+  <script src="assets/vendor/prism-python.min.js"></script>
+  <script src="assets/vendor/prism-bash.min.js"></script>
+  <script src="assets/vendor/prism-toml.min.js"></script>
 </body>
 </html>

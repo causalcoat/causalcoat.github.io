@@ -1,0 +1,52 @@
+{
+  "docsify.min.js": {
+    "url": "https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js",
+    "sha256": "9123f808d3f6ad736b4a8f99944a611f87c5d4f9328030080a5c029ed5f450a5"
+  },
+  "docsify-vue.css": {
+    "url": "https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css",
+    "upstream_sha256": "1f8ddcde10fe1d9f3ab60de8469ed26f9b09716fb882b225d666d4f62838de2e",
+    "sha256": "668f97a251f579300fa698e68add8b3951398f2b2bd2407441cf04d20f127b23",
+    "modification": "Removed Google Fonts @import; system font fallback."
+  },
+  "docsify-search.min.js": {
+    "url": "https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/search.min.js",
+    "sha256": "ab20792dc69dfd9cdb19479f716f69a619e577dec452739196770134dd71f297"
+  },
+  "docsify-copy-code.min.js": {
+    "url": "https://cdn.jsdelivr.net/npm/docsify-copy-code@3.0.2/dist/docsify-copy-code.min.js",
+    "sha256": "326d2f90cc4c8006ffad64809b1dc01cc442e055db4fda91a53d50a90b5abb77"
+  },
+  "docsify-pagination.min.js": {
+    "url": "https://cdn.jsdelivr.net/npm/docsify-pagination@2.10.1/dist/docsify-pagination.min.js",
+    "sha256": "175f5c8ba6f0ebcff545b24c80c33c789bfab81a5954c7a9d0e6afd34c922585"
+  },
+  "prism-python.min.js": {
+    "url": "https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-python.min.js",
+    "sha256": "ed4385685bcf2d4935c8dbbab4bde16603da1329e092d2bf36c3dadd67e9a85c"
+  },
+  "prism-bash.min.js": {
+    "url": "https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-bash.min.js",
+    "sha256": "6260814110e5182f2956e3bd257429548d9dbf2a9b66a63719b26cf9fac966a7"
+  },
+  "prism-toml.min.js": {
+    "url": "https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-toml.min.js",
+    "sha256": "bc71428fec2670d59cda5ad3359615c91892f914f526cf6bfe316fc2ad55aff2"
+  },
+  "LICENSE-docsify": {
+    "url": "https://cdn.jsdelivr.net/npm/docsify@4.13.1/LICENSE",
+    "sha256": "65a671d4b5bda281aac624bc6901d8a8c494c15dc3e329760e8652aa0d76519a"
+  },
+  "LICENSE-docsify-copy-code": {
+    "url": "https://cdn.jsdelivr.net/npm/docsify-copy-code@3.0.2/LICENSE",
+    "sha256": "e77510f86ef5ddb3ee7df49cacf37476b9942e3078ab1f8c4385808b2a1a1b41"
+  },
+  "LICENSE-docsify-pagination": {
+    "url": "https://cdn.jsdelivr.net/npm/docsify-pagination@2.10.1/license",
+    "sha256": "0048f56d3817be66917485bde0aa28eb6ee3c9e7f4b7f48357adb57c5a7867e3"
+  },
+  "LICENSE-prismjs": {
+    "url": "https://cdn.jsdelivr.net/npm/prismjs@1.30.0/LICENSE",
+    "sha256": "2b947f0901a7ffcf08a89957da9783c0e9c6e72cb6ce8e959f501ab5409e4d2b"
+  }
+}

@@ -158,7 +158,8 @@ def build_companions():
     except (OSError, subprocess.CalledProcessError):
         revision = None
     paths = [PROJECT / name for name in ("README.md", "README.zh-cn.md", "CITATION.cff", "LICENSE", "NOTICE", "data/README.md", "data/LICENSE")]
-    paths += sorted((PROJECT / "docs").rglob("*.md")) + sorted((PROJECT / "skills/coatlearn").rglob("*.md"))
+    paths += sorted(p for p in (PROJECT / "docs").rglob("*") if p.is_file())
+    paths += sorted((PROJECT / "skills/coatlearn").rglob("*.md"))
     digest = hashlib.sha256()
     for p in paths:
         digest.update(p.relative_to(PROJECT).as_posix().encode())

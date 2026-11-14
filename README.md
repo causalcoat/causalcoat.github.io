@@ -63,7 +63,7 @@ Open `http://127.0.0.1:8771/` or `http://127.0.0.1:8771/index-zh.html`. Reuse a 
 
 The homepage loads local assets only. Its text, image and climate demonstrations contain preset teaching values and make no model calls. Text highlights and image boxes are hand-authored cues, not package-generated evidence. The paper covers text, images and external measurement tools; the software's ready-to-use discovery interfaces accept text columns.
 
-The documentation shell loads Docsify and Prism from CDN. The current homepage and docs do not upload datasets, collect credentials or use analytics. Legacy pages for other projects retain their existing behavior.
+The documentation shell serves pinned local copies of Docsify 4, full-text search, code-copy, pagination and Prism. English and Chinese have separate browser-local search indexes. Search queries stay in the browser; `/` or Ctrl/⌘ K focuses search and Escape clears it. Code copying and previous/next links are localized. Vendor sources, checksums and MIT licenses accompany the assets. The current homepage and docs do not upload datasets, collect credentials or use analytics. Legacy pages for other projects retain their existing behavior.
 
 ## Attribution and licenses
 
