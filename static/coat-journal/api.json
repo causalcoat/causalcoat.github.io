@@ -1,8 +1,8 @@
 {
   "name": "coatlearn",
   "description": "Discover and measure factors in unstructured data; ready-to-use discovery interfaces accept text columns.",
-  "source_revision": "4fed3487aab9698d6000e2dc6ee5f2e7e8bdced5",
-  "documentation_sha256": "fc810261877cd36f36426c38e2f4aef87b221ad73652ee73d5e8a190fa6cb002",
+  "source_revision": "3a74612772b668e187fa34f21d1fbe02d5e6d96b",
+  "documentation_sha256": "d1e9ba20691c975ed8b182b2f0dd8d7ae127e2ef81935be3e7f797b06e7b036b",
   "publication": {
     "title": "Discovering and Reasoning of Causality in the Hidden World with Large Language Models",
     "journal": "Journal of Machine Learning Research",
@@ -41,13 +41,16 @@
   },
   "adjustment": "Generalized adjustment on the supplied graph; effect estimation uses per-set complete-case IPW. Explicit researcher exemptions or cycle-deletion hypotheses must accompany interpretation.",
   "release": {
-    "distribution": "Source checkout; no PyPI release asserted",
+    "distribution": "PyPI",
+    "install": "python -m pip install coatlearn",
+    "url": "https://pypi.org/project/coatlearn/",
     "licensing": {
       "software": "Apache-2.0",
       "example_csv_files": "CC-BY-4.0"
     }
   },
   "links": {
+    "installation": "../../docs/#/installation.md",
     "documentation": "../../docs/",
     "agent_guide": "agent.md",
     "public_skill": "skill/SKILL.md",

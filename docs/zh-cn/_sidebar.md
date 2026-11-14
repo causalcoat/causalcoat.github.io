@@ -3,6 +3,7 @@
 - [概览](/zh-cn/)
 - 学习
   - [理解 COAT](/zh-cn/concepts.md)
+  - [安装与准备分析](/zh-cn/installation.md)
   - [第一个分析](/zh-cn/quickstart.md)
 - 完成具体工作
   - [准备数据](/zh-cn/data.md)

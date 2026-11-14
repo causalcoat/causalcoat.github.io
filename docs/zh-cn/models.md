@@ -21,12 +21,12 @@
 
 第一次运行可直接使用已有预设，不必填写模型版本。**预设**是一份命名连接设置，包含模型标识、地址和密钥环境变量名称，并不是已启动的模型。
 
-在 shell 中准备 `DEEPSEEK_API_KEY` 与 `TYPESAFE_API_KEY` 后，可以把示例的三个决策角色一起切换为 Jev：
+在[安装指南](<installation.md>)准备的 `coat-example` 目录中，先在 shell 中准备 `DEEPSEEK_API_KEY` 与 `TYPESAFE_API_KEY`，再把示例的三个决策角色一起切换为 Jev：
 
 ```bash
-bash examples/mb.sh --decision-model jev
+python -m coatlearn mb --config config/mb.toml --decision-model jev
 # 确认配置和文本发送位置后再执行：
-bash examples/mb.sh --decision-model jev --run --output-dir runs/apple-jev
+python -m coatlearn mb --config config/mb.toml --decision-model jev --run --output-dir runs/apple-jev
 ```
 
 若要从 Python 直接进行一次 Jev 调用，可以使用预设中的配置。这会将下面的示例文本发给 TypeSafe：
@@ -117,7 +117,7 @@ main = ModelConfig(
 CLI 默认只使用已导出的环境变量。也可以显式选择一个私有 dotenv 文件：
 
 ```bash
-bash examples/mb.sh --decision-model jev --env-file .env --run --output-dir runs/apple-env
+python -m coatlearn mb --config config/mb.toml --decision-model jev --env-file .env --run --output-dir runs/apple-env
 ```
 
 dotenv 是以 `变量名=值` 保存配置的本地文本文件。CLI 只在加 `--run`、完成本地数据检查后读取选中的文件，并只加载本次需要的密钥；不会向父目录搜索。已有进程环境值优先。

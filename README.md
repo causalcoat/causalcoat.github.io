@@ -61,6 +61,8 @@ python3 -m http.server 8771 --bind 127.0.0.1
 
 Open `http://127.0.0.1:8771/` or `http://127.0.0.1:8771/index-zh.html`. Reuse a running preview for this directory. After rebuilding, refresh the browser; there is no automatic watcher.
 
+The default software installation is `python -m pip install coatlearn`, linked to the bilingual installation and configuration guide. Tutorials download example configuration and data into a working directory without requiring a repository clone. Python package publication remains a separate manual workflow.
+
 The homepage loads local assets only. Its text, image and climate demonstrations contain preset teaching values and make no model calls. Text highlights and image boxes are hand-authored cues, not package-generated evidence. The paper covers text, images and external measurement tools; the software's ready-to-use discovery interfaces accept text columns.
 
 The documentation shell serves pinned local copies of Docsify 4, full-text search, code-copy, pagination and Prism. English and Chinese have separate browser-local search indexes. Search queries stay in the browser; `/` or Ctrl/⌘ K focuses search and Escape clears it. Code copying and previous/next links are localized. Vendor sources, checksums and MIT licenses accompany the assets. The current homepage and docs do not upload datasets, collect credentials or use analytics. Legacy pages for other projects retain their existing behavior.

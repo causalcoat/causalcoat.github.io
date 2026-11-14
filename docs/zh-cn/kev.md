@@ -8,16 +8,15 @@
 
 ## 1. 准备独立环境
 
-在 coatlearn 项目目录运行以下命令。`KEV_WORK` 是自行选择的模型工作目录，不是项目要求的固定路径。需要系统已安装 Python 3.12 和 Git。
+下面从 PyPI 安装 coatlearn 的 GPU 依赖。`KEV_WORK` 是自行选择的模型工作目录，不是项目要求的固定路径。需要系统已安装 Python 3.12 和 Git。
 
 ```bash
-export COAT_PROJECT="$PWD"
 export KEV_WORK="$HOME/coatlearn-kev"
 mkdir -p "$KEV_WORK"
 python3.12 -m venv "$KEV_WORK/.venv"
 git clone https://github.com/jaredpalmer/kev.git "$KEV_WORK/source"
 "$KEV_WORK/.venv/bin/python" -m pip install \
-  -e "${COAT_PROJECT}[kev]" "$KEV_WORK/source"
+  "coatlearn[kev]" "$KEV_WORK/source"
 export HF_HOME="$KEV_WORK/cache"
 ```
 
@@ -82,12 +81,12 @@ curl --fail http://127.0.0.1:8019/health
 
 ## 4. 从分析进程连接
 
-回到安装了 coatlearn 的分析环境，在项目目录执行：
+回到安装了 coatlearn 的分析环境，在[安装指南](<installation.md>)准备的 `coat-example` 目录执行：
 
 ```bash
-bash examples/mb.sh
+python -m coatlearn mb --config config/mb.toml
 # 准备 DEEPSEEK_API_KEY，并确认允许向主模型发送提议示例后：
-bash examples/mb.sh --run --output-dir runs/apple-kev
+python -m coatlearn mb --config config/mb.toml --run --output-dir runs/apple-kev
 ```
 
 默认配置把标注、审核和去重指向刚启动的 Kev-9B。主模型仍为托管 DeepSeek Flash，因此仍需 `DEEPSEEK_API_KEY`，提议示例仍会发往 DeepSeek。本地 Kev 不需要 TypeSafe 密钥。

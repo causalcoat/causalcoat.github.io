@@ -4,6 +4,8 @@
 
 任务配置保存一次分析的数据选择、模型连接和统计设置。所附文件使用 TOML，一种用 `[task]` 等命名区段组织参数的文本格式。先用示例理解各项设置，再复制最接近自己问题的配置。
 
+安装包和下载可用示例见[安装与准备分析](<installation.md>)。下文命令在该指南的 `coat-example` 目录中执行。
+
 ## 配置文件的组成
 
 | 区段 | 保存什么 | 何时修改 |
@@ -52,8 +54,8 @@ dedup = "kev9b"
 可以将已开启的三个决策角色一起切换，不改变统计参数或主模型：
 
 ```bash
-bash examples/pag.sh --decision-model kev4b
-bash examples/pag.sh --decision-model jev
+python -m coatlearn pag --config config/pag.toml --decision-model kev4b
+python -m coatlearn pag --config config/pag.toml --decision-model jev
 ```
 
 上述命令只显示配置；加 `--run` 才会执行。Kev 需要匹配的本地服务，见[部署说明](<kev.md>)。所附主模型以 `omit_temperature = true` 不发送温度参数；审核和去重并发分别限制为三，去重还提供了比较定义的任务背景。

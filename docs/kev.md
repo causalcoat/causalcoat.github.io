@@ -8,16 +8,15 @@ This guide uses NVIDIA CUDA, a GPU supporting BF16 and a separate Python 3.12 en
 
 ## 1. Prepare a separate environment
 
-Run these commands from the coatlearn project directory. `KEV_WORK` is your chosen model directory, not a required project path. Python 3.12 and Git must already be installed.
+Install coatlearn’s GPU dependencies from PyPI. `KEV_WORK` is your chosen model directory, not a required project path. Python 3.12 and Git must already be installed.
 
 ```bash
-export COAT_PROJECT="$PWD"
 export KEV_WORK="$HOME/coatlearn-kev"
 mkdir -p "$KEV_WORK"
 python3.12 -m venv "$KEV_WORK/.venv"
 git clone https://github.com/jaredpalmer/kev.git "$KEV_WORK/source"
 "$KEV_WORK/.venv/bin/python" -m pip install \
-  -e "${COAT_PROJECT}[kev]" "$KEV_WORK/source"
+  "coatlearn[kev]" "$KEV_WORK/source"
 export HF_HOME="$KEV_WORK/cache"
 ```
 
@@ -82,12 +81,12 @@ The response's `model` should be `kev-9b-v1.0`. `/health` belongs to this packag
 
 ## 4. Connect from analysis
 
-Return to your coatlearn analysis environment and run from the project directory:
+Return to your coatlearn analysis environment and run from the `coat-example` directory prepared in the [installation guide](<installation.md>):
 
 ```bash
-bash examples/mb.sh
+python -m coatlearn mb --config config/mb.toml
 # Prepare DEEPSEEK_API_KEY and permit proposal examples to reach the main model:
-bash examples/mb.sh --run --output-dir runs/apple-kev
+python -m coatlearn mb --config config/mb.toml --run --output-dir runs/apple-kev
 ```
 
 The default configuration directs annotation, review and deduplication to the Kev-9B server you started. The main model remains hosted DeepSeek Flash, so `DEEPSEEK_API_KEY` is still required and proposal examples still go to DeepSeek. Local Kev requires no TypeSafe key.

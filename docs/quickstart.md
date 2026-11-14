@@ -8,22 +8,20 @@ This guide uses DeepSeek Flash to propose factors and hosted Jev for annotation 
 
 ## 1. Install
 
-Use Python 3.11 or newer. Run all commands on this page from the project directory containing the [project configuration](<https://github.com/causalcoat/COAT-Learn/tree/main/pyproject.toml>):
+Use Python 3.11 or newer in your chosen environment:
 
 ```bash
-git clone https://github.com/causalcoat/COAT-Learn.git
-cd COAT-Learn
-python3 -m pip install -e .
+python -m pip install coatlearn
 ```
 
-This installs the Python library and command-line tool. It does not start model servers.
+Follow [install and prepare an analysis](<installation.md>) to create an environment and download the small example working directory. No repository clone is needed. Continue from inside `coat-example`, which contains `config/` and `data/`. Installation does not start model servers.
 
 ## 2. Inspect input and settings
 
 Inspect the task without calling a model:
 
 ```bash
-bash examples/mb.sh --decision-model jev
+python -m coatlearn mb --config config/mb.toml --decision-model jev
 ```
 
 The summary should report `method` as `mb`, `rows` as 1000, `columns_used` as `Score` and `Review`, and `network_requests` as 0. Credentials have not been checked yet.
@@ -50,7 +48,7 @@ The variables apply to this shell and programs it starts. You can also select a 
 After confirming that you permit the example texts to be sent to these services, run:
 
 ```bash
-bash examples/mb.sh --decision-model jev --run --output-dir runs/apple-mb
+python -m coatlearn mb --config config/mb.toml --decision-model jev --run --output-dir runs/apple-mb
 ```
 
 COAT sends selected review examples to the main model for factor proposal, assigns values across reviews, updates the selected set using statistical tests and constructs feedback for the next round. Names and runtime depend on model responses and discovery. The example does not require a predetermined list of factors.
@@ -77,7 +75,7 @@ The same directory contains `config.resolved.json` with the actual models and pa
 
 ## What to do next
 
-To investigate structure between `Taste` and `Score`, inspect the [PAG example configuration](<https://github.com/causalcoat/COAT-Learn/tree/main/config/pag.toml>). It uses the same reviews, starting from those two measured variables and seeking additional factors to refine graph endpoint information. Run `bash examples/pag.sh --decision-model jev` to inspect it; add `--run` to execute.
+To investigate structure between `Taste` and `Score`, inspect the [PAG example configuration](<https://github.com/causalcoat/COAT-Learn/tree/main/config/pag.toml>). It uses the same reviews, starting from those two measured variables and seeking additional factors to refine graph endpoint information. Run `python -m coatlearn pag --config config/pag.toml --decision-model jev` to inspect it; add `--run` to execute.
 
 To study an action's effect, inspect the [ADJ example configuration](<https://github.com/causalcoat/COAT-Learn/tree/main/config/adj.toml>). It uses a separate synthetic customer dataset to study email sending and visits, with [research assumptions](<configuration.md#research-assumptions>) that need interpretation. Do not copy those assumptions directly to your own data.
 

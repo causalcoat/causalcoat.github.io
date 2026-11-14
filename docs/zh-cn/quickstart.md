@@ -8,22 +8,20 @@
 
 ## 1. 安装
 
-使用 Python 3.11 或更新版本。在包含[项目配置](<https://github.com/causalcoat/COAT-Learn/tree/main/pyproject.toml>)的项目目录中运行本页所有命令：
+在选中的 Python 3.11 或更新环境中安装：
 
 ```bash
-git clone https://github.com/causalcoat/COAT-Learn.git
-cd COAT-Learn
-python3 -m pip install -e .
+python -m pip install coatlearn
 ```
 
-安装的是 Python 库和命令行工具，不会自动启动模型服务。
+先按[安装与准备分析](<installation.md>)创建环境并下载小型示例工作目录，不需要克隆仓库。后续命令都在包含 `config/` 和 `data/` 的 `coat-example` 中执行。安装不会自动启动模型服务。
 
 ## 2. 查看输入与设置
 
 先只查看任务，不执行模型调用：
 
 ```bash
-bash examples/mb.sh --decision-model jev
+python -m coatlearn mb --config config/mb.toml --decision-model jev
 ```
 
 摘要应显示 `method` 为 `mb`、`rows` 为 1000、`columns_used` 为 `Score` 和 `Review`，以及 `network_requests` 为 0。此时尚未检查密钥。
@@ -50,7 +48,7 @@ export TYPESAFE_API_KEY
 确认允许把示例文本发给上述服务后，执行：
 
 ```bash
-bash examples/mb.sh --decision-model jev --run --output-dir runs/apple-mb
+python -m coatlearn mb --config config/mb.toml --decision-model jev --run --output-dir runs/apple-mb
 ```
 
 COAT 将选中的评论示例交给主模型提出因子，再为评论逐条赋值，用统计检验更新所选集合，并构造下一轮反馈。具体名称和运行时长取决于模型回答与发现过程，示例不预设必须发现某几个因子。
@@ -77,7 +75,7 @@ for name in result["diagnostics"].get("final_blanket", []):
 
 ## 接下来做什么
 
-若想了解 `Taste` 和 `Score` 的结构，查看 [PAG 示例配置](<https://github.com/causalcoat/COAT-Learn/tree/main/config/pag.toml>)。它使用同一份评论，从这两个已有变量出发寻找更多因子，以细化图的端点信息。命令为 `bash examples/pag.sh --decision-model jev`；加 `--run` 才会执行。
+若想了解 `Taste` 和 `Score` 的结构，查看 [PAG 示例配置](<https://github.com/causalcoat/COAT-Learn/tree/main/config/pag.toml>)。它使用同一份评论，从这两个已有变量出发寻找更多因子，以细化图的端点信息。命令为 `python -m coatlearn pag --config config/pag.toml --decision-model jev`；加 `--run` 才会执行。
 
 若想研究行动的效应，查看 [ADJ 示例配置](<https://github.com/causalcoat/COAT-Learn/tree/main/config/adj.toml>)。它使用另一份合成顾客数据，研究发送邮件对访问的影响，包含需要理解的[研究假设](<configuration.md#研究假设>)。不要把这些假设直接复制到自己的数据。
 

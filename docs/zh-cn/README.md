@@ -9,6 +9,7 @@ coatlearn 帮助你从非结构化数据中发现并测量有用因子，再分�
 ## 学习
 
 - [理解 COAT](<concepts.md>)：建立从非结构化资料到因果分析的概念联系。
+- [安装与准备分析](<installation.md>)：从 PyPI 安装、下载示例并准备任务配置。
 - [第一个分析](<quickstart.md>)：安装、查看配置、连接模型、运行并读取一个 MB 结果。
 
 ## 完成具体工作
@@ -29,11 +30,11 @@ coatlearn 帮助你从非结构化数据中发现并测量有用因子，再分�
 
 ## 阅读方式
 
-文档提供[中文](<README.md>)与 [English](<../README.md>)。可以直接阅读 Markdown，也可以在项目目录启动静态文件服务：
+阅读[在线中文文档](https://causalcoat.github.io/docs/#/zh-cn/)或 [English](https://causalcoat.github.io/docs/#/)，可使用当前语言的全文搜索、代码复制和前后篇导航。已有源码时，也可以直接阅读 Markdown 或本地预览：
 
 ```bash
 python3 -m http.server 8000
 # 打开 http://localhost:8000/docs/#/zh-cn/
 ```
 
-8000 是文档预览的示例端口，与模型服务端口无关。文档网页使用 Docsify，首次打开需要加载其 CDN 资源。
+8000 是文档预览的示例端口，与模型服务端口无关。网页的 Docsify 和搜索资源随本站提供，不依赖 CDN 或托管搜索服务。

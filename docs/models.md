@@ -21,12 +21,12 @@ A **chat model** generates factor names, definitions and revisions from prompts.
 
 For a first run, use existing presets without entering a model version. A **preset** is a named connection configuration containing a model identifier, address and credential-variable name. It is not a running model.
 
-Prepare `DEEPSEEK_API_KEY` and `TYPESAFE_API_KEY` in your shell, then switch the example's three decision roles to Jev:
+From the `coat-example` directory prepared in the [installation guide](<installation.md>), prepare `DEEPSEEK_API_KEY` and `TYPESAFE_API_KEY` in your shell, then switch the example's three decision roles to Jev:
 
 ```bash
-bash examples/mb.sh --decision-model jev
+python -m coatlearn mb --config config/mb.toml --decision-model jev
 # Execute after confirming the configuration and where text will be sent:
-bash examples/mb.sh --decision-model jev --run --output-dir runs/apple-jev
+python -m coatlearn mb --config config/mb.toml --decision-model jev --run --output-dir runs/apple-jev
 ```
 
 For a direct Jev call from Python, use the preset's configuration. This sends the example text below to TypeSafe:
@@ -117,7 +117,7 @@ Provide keys through environment variables, not TOML, Python source or results. 
 The CLI uses exported variables by default. You can instead explicitly select a private dotenv file:
 
 ```bash
-bash examples/mb.sh --decision-model jev --env-file .env --run --output-dir runs/apple-env
+python -m coatlearn mb --config config/mb.toml --decision-model jev --env-file .env --run --output-dir runs/apple-env
 ```
 
 A dotenv file is a local text file with `NAME=value` entries. The CLI reads the selected file only with `--run`, after local data checks, and loads only keys required for that execution. It does not search parent directories. Existing process values take precedence.

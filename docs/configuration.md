@@ -4,6 +4,8 @@
 
 A task configuration stores data selection, model connections and statistical settings for an analysis. The supplied files use TOML, a text format organized into named sections such as `[task]`. Understand the example settings before copying the closest configuration for your question.
 
+To install the package and download working examples, start with [install and prepare an analysis](<installation.md>). Commands below run from that `coat-example` directory.
+
 ## Configuration sections
 
 | Section | What it stores | When to change it |
@@ -52,8 +54,8 @@ dedup = "kev9b"
 Switch all three enabled decision roles together without changing the proposer or statistical parameters:
 
 ```bash
-bash examples/pag.sh --decision-model kev4b
-bash examples/pag.sh --decision-model jev
+python -m coatlearn pag --config config/pag.toml --decision-model kev4b
+python -m coatlearn pag --config config/pag.toml --decision-model jev
 ```
 
 These commands only display configuration; add `--run` to execute. Kev requires a matching local server; see [deployment](<kev.md>). The supplied main model uses `omit_temperature = true` to omit temperature from requests. Review and deduplication each have concurrency limited to three; deduplication also receives the task context for comparing definitions.

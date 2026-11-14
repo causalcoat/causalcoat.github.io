@@ -9,6 +9,7 @@ If you have ratings and reviews but no attribute columns to analyze, start with 
 ## Learn
 
 - [Understand COAT](<concepts.md>): connect unstructured material to causal analysis.
+- [Install and prepare](<installation.md>): install from PyPI, obtain example files and prepare a task.
 - [Your first analysis](<quickstart.md>): install, inspect configuration, connect models, run MB and read one result.
 
 ## Complete a task
@@ -29,11 +30,11 @@ If you have ratings and reviews but no attribute columns to analyze, start with 
 
 ## Read the documentation
 
-The documentation is available in [English](<README.md>) and [中文](<zh-cn/README.md>). Read Markdown directly, or start a static file server from the project directory:
+Read the [online documentation](https://causalcoat.github.io/docs/#/) in English or [中文](https://causalcoat.github.io/docs/#/zh-cn/). It includes language-local full-text search, code copying and previous/next navigation. If you have a source checkout, you can also read Markdown directly or preview it locally:
 
 ```bash
 python3 -m http.server 8000
 # Open http://localhost:8000/docs/
 ```
 
-8000 is an example documentation-preview port, unrelated to model-server ports. The site uses Docsify and loads its CDN resources when first opened.
+8000 is an example documentation-preview port, unrelated to model-server ports. The site serves its Docsify and search assets locally; it needs no CDN or hosted search service.

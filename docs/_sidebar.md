@@ -3,6 +3,7 @@
 - [Overview](/)
 - Learn
   - [Understand COAT](/concepts.md)
+  - [Install and prepare](/installation.md)
   - [Your first analysis](/quickstart.md)
 - Complete a task
   - [Prepare data](/data.md)
