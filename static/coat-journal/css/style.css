@@ -5,6 +5,23 @@
   color:var(--muted);
   font-weight:400;
 }
+#intro-video .video-languages {
+  margin-top:.85rem;
+  color:var(--muted);
+  font-size:.8125rem;
+}
+#intro-video .video-languages a {
+  color:var(--muted);
+  text-underline-offset:.2em;
+}
+#intro-video .video-languages [aria-current] {
+  color:var(--ink);
+  font-weight:600;
+}
+#intro-video .video-languages a:hover,
+#intro-video .video-languages a:focus-visible {
+  color:var(--ink);
+}
 #intro-video .video-transcript {
   margin-top:.8rem;
   color:var(--muted);

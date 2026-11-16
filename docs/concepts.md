@@ -12,6 +12,14 @@ A **factor** in COAT is a high-level attribute defined and measured from this ma
 
 **Factor discovery** addresses not yet knowing which attributes to measure. A language model reads selected examples and proposes candidate definitions. An annotation model measures them. Statistical methods select variables and construct feedback. The next round examines observations not sufficiently explained by existing variables and seeks missing information. COAT therefore does more than generate a one-off attribute list, and does not ask the language model to decide causal relationships directly.
 
+### See the feedback loop
+
+Similar measured attributes can accompany different ratings. Looking back at the original review reveals a bruising clue, motivating another measurement.
+
+![Preset teaching example: return to a review, find bruising, and add a measurement.](/static/coat-journal/media/coat-loop-en.gif)
+
+Preset teaching example. [Static illustration](/static/coat-journal/media/loop-poster-en.webp) · [Full introduction](/#intro-video)
+
 The paper considers text, images and data whose measurement requires external tools. This package provides ready-to-use text-column interfaces and statistical operations on measured tables. The framework's scope and an interface's accepted input are separate questions.
 
 ## What a Markov blanket answers

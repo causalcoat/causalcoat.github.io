@@ -85,7 +85,8 @@ def render(locale):
     media_base = f'{ASSETS}media/'
     transcript = (ROOT / media_base / f'coat-transcript-{locale}.txt').read_text(encoding='utf-8')
     transcript_html = ''.join(f'<p>{e(p)}</p>' for p in transcript.strip().split('\n\n'))
-    video_section = f'''<section class="section" id="intro-video" aria-labelledby="intro-video-title"><div class="container"><div class="section-heading"><h2 id="intro-video-title">{e(media['title'])}</h2><p class="video-intro">{e(media['intro'])}</p></div><video controls playsinline preload="none" poster="{media_base}coat-poster-{locale}.webp" width="1920" height="1080" style="display:block;width:100%;height:auto;border-radius:16px" aria-label="{e(media['title'])}"><source src="{media_base}coat-intro-{locale}.mp4" type="video/mp4"><track kind="captions" src="{media_base}coat-intro-{locale}.vtt" srclang="{locale}" label="{'English' if locale == 'en' else '中文'}"><a href="{media_base}coat-intro-{locale}.mp4">{e(media['download'])}</a></video><details class="video-transcript"><summary>{e(media['transcript'])}</summary>{transcript_html}</details></div></section>'''
+    video_languages = ('<span aria-current="page" lang="zh-CN">中文</span> · <a href="index.html#intro-video" lang="en" hreflang="en">English</a>' if locale == 'zh' else '<a href="index-zh.html#intro-video" lang="zh-CN" hreflang="zh-CN">中文</a> · <span aria-current="page" lang="en">English</span>')
+    video_section = f'''<section class="section" id="intro-video" aria-labelledby="intro-video-title"><div class="container"><div class="section-heading"><h2 id="intro-video-title">{e(media['title'])}</h2><p class="video-intro">{e(media['intro'])}</p></div><video controls playsinline preload="none" poster="{media_base}coat-poster-{locale}.webp" width="1920" height="1080" style="display:block;width:100%;height:auto;border-radius:16px" aria-label="{e(media['title'])}"><source src="{media_base}coat-intro-{locale}.mp4" type="video/mp4"><track kind="captions" src="{media_base}coat-intro-{locale}.vtt" srclang="{locale}" label="{'English' if locale == 'en' else '中文'}"><a href="{media_base}coat-intro-{locale}.mp4">{e(media['download'])}</a></video><nav class="video-languages" aria-label="{'Video language' if locale == 'en' else '视频语言'}">{video_languages}</nav><details class="video-transcript"><summary>{e(media['transcript'])}</summary>{transcript_html}</details></div></section>'''
     nav = "".join(link("#" + key, e(label)) for key, label in c["nav"])
     cols = "".join(f'<div><span>{e(label)}</span><strong>{e(value)}</strong><small>{e(meaning)}</small></div>' for label, value, meaning in zip(c["hero_columns"], c["hero_values"], c["hero_meanings"]))
     tabs = "".join(f'<a id="tab-{key}" href="#demo-{key}" data-dataset="{key}"><strong>{e(title)}</strong><span>{e(subtitle)}</span></a>' for key, title, subtitle in c["datasets"])
@@ -140,6 +141,10 @@ def build_docs():
         destination = ROOT / "docs" / relative
         if source.suffix == ".md":
             text = source.read_text(encoding="utf-8")
+            # README/GitHub sources use public URLs; served docs use this origin.
+            # This keeps local previews independent of deployment status.
+            for target in ('static/coat-journal/media/', 'index-zh.html#intro-video', '#intro-video'):
+                text = text.replace('https://causalcoat.github.io/' + target, '/' + target)
             def rewrite(match):
                 target = match.group(1)
                 if re.match(r"https?://|mailto:|#|/", target):
