@@ -18,7 +18,7 @@ Similar measured attributes can accompany different ratings. Looking back at the
 
 ![Preset teaching example: return to a review, find bruising, and add a measurement.](/static/coat-journal/media/coat-loop-en.gif)
 
-Preset teaching example. [Static illustration](/static/coat-journal/media/loop-poster-en.webp) · [Full introduction](/#intro-video)
+Preset teaching example. [Static illustration](/static/coat-journal/media/loop-poster-en.webp) · [Full introduction](/#intro-video ":ignore")
 
 The paper considers text, images and data whose measurement requires external tools. This package provides ready-to-use text-column interfaces and statistical operations on measured tables. The framework's scope and an interface's accepted input are separate questions.
 

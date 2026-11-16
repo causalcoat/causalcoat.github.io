@@ -18,7 +18,7 @@ COAT 中的**因子**就是从这些资料中定义并测量的高层属性。�
 
 ![预设教学示意：回看评论，发现磕伤，补充测量。](/static/coat-journal/media/coat-loop-zh.gif)
 
-预设教学示意。[静态图](/static/coat-journal/media/loop-poster-zh.webp) · [完整介绍视频](/index-zh.html#intro-video)
+预设教学示意。[静态图](/static/coat-journal/media/loop-poster-zh.webp) · [完整介绍视频](/index-zh.html#intro-video ":ignore")
 
 论文讨论的资料包括文本、图像和需要外部工具取得测量值的数据。本包的现成接口处理文本列，也提供已有测量表上的统计操作。理解框架的适用范围，与确认某个接口能读取什么，是两个问题。
 

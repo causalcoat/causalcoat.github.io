@@ -6,7 +6,7 @@ coatlearn 帮助你从非结构化数据中发现并测量有用因子，再分�
 
 如果你有评分和评论，却还没有要分析的属性列，从[理解 COAT](<concepts.md>)开始。它解释为什么要发现变量，以及马尔可夫毯、因果图、调整集和效应估计分别有什么用。随后跟随[第一个分析](<quickstart.md>)，完成一次苹果评论的因子发现并读取结果。
 
-[▶ 观看一分钟介绍](/index-zh.html#intro-video) · [English](/#intro-video)
+[▶ 观看一分钟介绍](/index-zh.html#intro-video ":ignore") · [English](/#intro-video ":ignore")
 
 ## 学习
 

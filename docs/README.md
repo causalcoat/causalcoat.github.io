@@ -6,7 +6,7 @@ coatlearn helps you discover and measure useful factors in unstructured data, th
 
 If you have ratings and reviews but no attribute columns to analyze, start with [understand COAT](<concepts.md>). It explains why to discover variables and what Markov blankets, causal graphs, adjustment sets and effect estimates are useful for. Then follow [your first analysis](<quickstart.md>) to discover factors in apple reviews and read the result.
 
-[▶ Watch the one-minute introduction](/#intro-video) · [中文](/index-zh.html#intro-video)
+[▶ Watch the one-minute introduction](/#intro-video ":ignore") · [中文](/index-zh.html#intro-video ":ignore")
 
 ## Learn
 

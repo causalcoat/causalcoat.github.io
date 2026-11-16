@@ -143,8 +143,11 @@ def build_docs():
             text = source.read_text(encoding="utf-8")
             # README/GitHub sources use public URLs; served docs use this origin.
             # This keeps local previews independent of deployment status.
-            for target in ('static/coat-journal/media/', 'index-zh.html#intro-video', '#intro-video'):
-                text = text.replace('https://causalcoat.github.io/' + target, '/' + target)
+            text = text.replace('https://causalcoat.github.io/static/coat-journal/media/', '/static/coat-journal/media/')
+            # Docsify otherwise interprets root-relative page links as docs routes.
+            # Its :ignore directive emits a normal browser link on either origin.
+            for target, local in (('index-zh.html#intro-video', '/index-zh.html#intro-video'), ('#intro-video', '/#intro-video')):
+                text = text.replace('(https://causalcoat.github.io/' + target + ')', '(' + local + ' ":ignore")')
             def rewrite(match):
                 target = match.group(1)
                 if re.match(r"https?://|mailto:|#|/", target):
