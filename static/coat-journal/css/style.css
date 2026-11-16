@@ -1,4 +1,27 @@
 /* Shared bilingual journal page. Content stays visible without scripts or motion. */
+#intro-video .video-intro {
+  font-size:.875rem;
+  line-height:1.65;
+  color:var(--muted);
+  font-weight:400;
+}
+#intro-video .video-transcript {
+  margin-top:.8rem;
+  color:var(--muted);
+  font-size:.875rem;
+  line-height:1.75;
+}
+#intro-video .video-transcript > summary {
+  color:var(--muted);
+  font-size:.8125rem;
+  font-weight:400;
+  cursor:pointer;
+}
+#intro-video .video-transcript > summary:hover,
+#intro-video .video-transcript > summary:focus-visible {
+  color:var(--ink);
+}
+
 @font-face {
   font-family:Manrope;
   font-style:normal;
