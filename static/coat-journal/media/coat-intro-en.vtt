@@ -1,0 +1,44 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:07.900
+Both reviews say the apples are sweet.
+So why are the ratings different? Perhaps something is missing.
+
+00:00:07.900 --> 00:00:12.000
+First, a language model proposes variables,
+such as sweetness,
+
+00:00:12.000 --> 00:00:14.800
+and defines how to measure them.
+
+00:00:14.800 --> 00:00:18.500
+Statistical methods can then analyze relationships,
+
+00:00:18.500 --> 00:00:23.000
+rather than letting the language model
+decide what causes what.
+
+00:00:23.000 --> 00:00:27.500
+But analysis is not the end.
+Looking back, we notice a clue: bruising.
+
+00:00:27.500 --> 00:00:31.000
+We add a measurement and analyze again.
+
+00:00:31.000 --> 00:00:36.400
+Observations, variables, values,
+and statistical feedback form a loop.
+
+00:00:36.400 --> 00:00:40.000
+The same approach can discover factors in news,
+
+00:00:40.000 --> 00:00:43.000
+measure climate variables with tools,
+
+00:00:43.000 --> 00:00:48.500
+or account for customer differences when estimating
+how emails affect website visits.
+
+00:00:48.500 --> 00:00:56.760
+This is COAT-Learn: language models and statistics
+working together, from observations to analysis.

@@ -15,6 +15,17 @@ BIBTEX = """@article{JMLR:v27:25-2137,
   url     = {http://jmlr.org/papers/v27/25-2137.html}
 }"""
 
+MEDIA = {
+    'en': {'title': 'COAT in one minute', 'button': 'Watch the 60-second introduction',
+           'intro': 'From reviews to measured variables, then statistical feedback. Narrated in English.',
+           'transcript': 'Read the transcript', 'download': 'Download video',
+           'note': 'Preset teaching example, followed by paper case studies. Voice: DeepSeek Stella. Music: A Small Discovery, made with Suno.'},
+    'zh': {'title': '一分钟了解 COAT', 'button': '观看一分钟介绍',
+           'intro': '从评论到测量变量，再让统计反馈指导下一轮发现。中文配音。',
+           'transcript': '阅读旁白文字稿', 'download': '下载视频',
+           'note': '前半段为预设教学示意，后半段为论文案例。配音：DeepSeek Stella。音乐：A Small Discovery，使用 Suno 制作。'}
+}
+
 CONTENT = {
 "en": {
     "lang": "en", "other": "中文", "other_lang": "zh-CN", "other_file": "index-zh.html",

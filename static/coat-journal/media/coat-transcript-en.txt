@@ -1,0 +1,23 @@
+Both reviews say the apples are sweet. So why are the ratings different? Perhaps something is missing.
+
+First, a language model proposes variables, such as sweetness,
+
+and defines how to measure them.
+
+Statistical methods can then analyze relationships,
+
+rather than letting the language model decide what causes what.
+
+But analysis is not the end. Looking back, we notice a clue: bruising.
+
+We add a measurement and analyze again.
+
+Observations, variables, values, and statistical feedback form a loop.
+
+The same approach can discover factors in news,
+
+measure climate variables with tools,
+
+or account for customer differences when estimating how emails affect website visits.
+
+This is COAT-Learn: language models and statistics working together, from observations to analysis.

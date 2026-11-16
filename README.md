@@ -67,6 +67,12 @@ The homepage loads local assets only. Its text, image and climate demonstrations
 
 The documentation shell serves pinned local copies of Docsify 4, full-text search, code-copy, pagination and Prism. English and Chinese have separate browser-local search indexes. Search queries stay in the browser; `/` or Ctrl/⌘ K focuses search and Escape clears it. Code copying and previous/next links are localized. Vendor sources, checksums and MIT licenses accompany the assets. The current homepage and docs do not upload datasets, collect credentials or use analytics. Legacy pages for other projects retain their existing behavior.
 
+## Introduction videos
+
+Both homepages link to `#intro-video`: a local one-minute video with controls, a poster, captions and a readable transcript. Playback is never automatic; `preload="none"` avoids downloading the full film before interaction. English and Chinese have separate narration and timing. Software READMEs use the ten-second GIF loops hosted here, with static alternatives.
+
+See [media provenance and publication notes](<static/coat-journal/media/README.md>). Large audio masters stay outside this repository. Deploy the media assets before publishing the new software README links. Confirm music publication rights before pushing.
+
 ## Attribution and licenses
 
 COAT research and figures are attributed to Chenxi Liu, Yongqiang Chen, Tongliang Liu, Mingming Gong, James Cheng, Bo Han and Kun Zhang. The current paper is [JMLR 27(229):1–95, 2026](https://www.jmlr.org/papers/v27/25-2137.html). The conference archive preserves its NeurIPS 2024 citation and template credit.

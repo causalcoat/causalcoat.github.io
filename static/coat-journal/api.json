@@ -1,8 +1,8 @@
 {
   "name": "coatlearn",
   "description": "Discover and measure factors in unstructured data; ready-to-use discovery interfaces accept text columns.",
-  "source_revision": "3a74612772b668e187fa34f21d1fbe02d5e6d96b",
-  "documentation_sha256": "d1e9ba20691c975ed8b182b2f0dd8d7ae127e2ef81935be3e7f797b06e7b036b",
+  "source_revision": "7dac4b6c594cac84a2a24c1fda4798023a76ce02",
+  "documentation_sha256": "4a4f2fb949c071979cda9cc3427999da3f133f873219ae42b178ef17744f221e",
   "publication": {
     "title": "Discovering and Reasoning of Causality in the Hidden World with Large Language Models",
     "journal": "Journal of Machine Learning Research",
