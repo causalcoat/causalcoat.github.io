@@ -2,13 +2,13 @@
 
 # 部署本地 Kev
 
-使用 Kev 可以让因子标注、定义审核和概念去重在本机执行。Kev 是独立的决策模型，不是聊天模型；它回答给定规则下的分类、评分和是非问题。下面启动与本包 `kev9b` 预设匹配的服务，再从分析进程连接它。
+使用 Kev 可以让因子标注、定义审核和概念去重在本机执行。Kev 是独立的决策模型，回答给定规则下的分类、评分和是非问题。下面启动与本包 `kev9b` 预设匹配的服务，再从分析进程连接它。
 
 本指南使用 NVIDIA CUDA、支持 BF16 的 GPU，以及独立的 Python 3.12 环境。需要为基础模型、适配器和推理留出足够显存及磁盘空间。若不准备本地硬件，可以改用[托管 Jev](<models.md#连接托管模型>)。
 
 ## 1. 准备独立环境
 
-下面从 PyPI 安装 coatlearn 的 GPU 依赖。`KEV_WORK` 是自行选择的模型工作目录，不是项目要求的固定路径。需要系统已安装 Python 3.12 和 Git。
+下面从 PyPI 安装 coatlearn 的 GPU 依赖。`KEV_WORK` 是自行选择的模型工作目录。需要系统已安装 Python 3.12 和 Git。
 
 ```bash
 export KEV_WORK="$HOME/coatlearn-kev"
@@ -46,7 +46,7 @@ snapshot_download(
 PY
 ```
 
-`v1.0` 选择上游已经发布的一份模型权重；它不是需要你维护的项目版本。按元数据下载基础模型，避免把 Kev 适配器配到另一份基础权重上。权重说明见 [Kev-9B 模型卡](https://github.com/jaredpalmer/kev/blob/main/docs/model-cards/kev-9b.md)。
+`v1.0` 选择上游已经发布的一份模型权重。按元数据下载基础模型，避免把 Kev 适配器配到另一份基础权重上。权重说明见 [Kev-9B 模型卡](https://github.com/jaredpalmer/kev/blob/main/docs/model-cards/kev-9b.md)。
 
 ## 3. 启动服务
 
@@ -101,6 +101,6 @@ python -m coatlearn mb --config config/mb.toml --run --output-dir runs/apple-kev
 
 本指南使用的是 coatlearn 的服务入口，它要求请求的模型标识与启动时的标识一致。上游 `python -m kev.serve` 使用 `kev-latest` 等服务别名；本包 `KevConfig` 接受的是 `kev-9b-v1.0` 或 `kev-4b-v1.0`。因此，直接启动上游示例命令并不等于启动了与本包预设匹配的服务。
 
-本包入口在 GPU 上串行执行请求，状态文本预算为 8192 token，不启用量化或 CUDA graphs。返回的概率保留计算精度，不在 HTTP 序列化时额外舍入；这不表示权重使用 FP32，也不表示标注没有误差。
+本包入口在 GPU 上串行执行请求，状态文本预算为 8192 token，不启用量化或 CUDA graphs。返回的概率保留计算精度，不在 HTTP 序列化时额外舍入；权重使用 BF16，标注可能有误差。
 
 上游还提供其他设备与部署方式，见 [Kev 文档](https://github.com/jaredpalmer/kev)。这些能力与本页 CUDA 本地入口的行为分开理解。

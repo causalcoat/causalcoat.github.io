@@ -2,13 +2,13 @@
 
 # Deploy local Kev
 
-Kev lets you run factor annotation, definition review and concept deduplication on your own machine. It is an independent decision model, not a chat model. It answers classification, rating and yes/no questions under supplied rules. This guide starts a server matching the package's `kev9b` preset and connects from the analysis process.
+Kev lets you run factor annotation, definition review and concept deduplication on your own machine. This independent decision model answers classification, rating and yes/no questions under supplied rules. This guide starts a server matching the package's `kev9b` preset and connects from the analysis process.
 
 This guide uses NVIDIA CUDA, a GPU supporting BF16 and a separate Python 3.12 environment. Allow enough GPU memory and disk space for the base model, adapter and inference. If you do not want to prepare local hardware, use [hosted Jev](<models.md#connect-hosted-models>).
 
 ## 1. Prepare a separate environment
 
-Install coatlearn’s GPU dependencies from PyPI. `KEV_WORK` is your chosen model directory, not a required project path. Python 3.12 and Git must already be installed.
+Install coatlearn’s GPU dependencies from PyPI. `KEV_WORK` is your chosen model directory. Python 3.12 and Git must already be installed.
 
 ```bash
 export KEV_WORK="$HOME/coatlearn-kev"
@@ -46,7 +46,7 @@ snapshot_download(
 PY
 ```
 
-`v1.0` selects a published upstream weight release. It is not a project version you need to maintain. Downloading the base from metadata avoids pairing the adapter with different base weights. See the [Kev-9B model card](https://github.com/jaredpalmer/kev/blob/main/docs/model-cards/kev-9b.md).
+`v1.0` selects a published upstream weight release. Downloading the base from metadata avoids pairing the adapter with different base weights. See the [Kev-9B model card](https://github.com/jaredpalmer/kev/blob/main/docs/model-cards/kev-9b.md).
 
 ## 3. Start the server
 
@@ -101,6 +101,6 @@ In a separate working directory, follow the same steps with the released `jaredp
 
 This guide uses coatlearn's runner, which requires the requested model identifier to match its startup identifier. Upstream `python -m kev.serve` uses service aliases such as `kev-latest`; this package's `KevConfig` accepts `kev-9b-v1.0` or `kev-4b-v1.0`. Starting the upstream example command therefore does not by itself produce a server matching this package's presets.
 
-This runner serializes GPU work, uses an 8,192-token state budget and enables neither quantization nor CUDA graphs. Answer probabilities retain their computed precision without extra rounding for HTTP serialization. That does not mean FP32 weights or error-free annotation.
+This runner serializes GPU work, uses an 8,192-token state budget and enables neither quantization nor CUDA graphs. Answer probabilities retain their computed precision without extra rounding for HTTP serialization. The runner uses BF16 weights, and annotation can contain errors.
 
 Upstream provides other devices and deployment options; see [Kev documentation](https://github.com/jaredpalmer/kev). Distinguish those capabilities from the CUDA loopback runner described here.

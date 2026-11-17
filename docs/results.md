@@ -2,7 +2,7 @@
 
 # Result reference
 
-First distinguish a variable set, a graph and an estimate of a specified effect. MB primarily reports selected factors, PAG reports a graph, and ADJ also reports adjustment sets and set-specific estimates. Execution status describes the process, not the interpretation of these results.
+First distinguish a variable set, a graph and an estimate of a specified effect. MB primarily reports selected factors, PAG reports a graph, and ADJ also reports adjustment sets and set-specific estimates.
 
 ## Top-level fields
 

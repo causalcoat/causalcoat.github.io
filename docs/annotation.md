@@ -51,6 +51,31 @@ Under the definition, the first review supports “very sweet,” while the seco
 
 Put multiple factors in the `definitions` mapping. `batch_size` controls factors per request, up to 8; `concurrency` controls worker threads and defaults to 16. Each request uses one text, and complete definitions are translated into questions automatically.
 
+## Use an LLM for annotation
+
+The same `annotate` function accepts a chat-model configuration. Set `DEEPSEEK_API_KEY`, then reuse the definition above:
+
+```python
+from coatlearn import ModelConfig
+
+model = ModelConfig(
+    model="deepseek-flash",
+    base_url="https://api.deepseek.com",
+    api_key_env="DEEPSEEK_API_KEY",
+    thinking="disabled",
+    temperature=None,
+)
+annotations = annotate(
+    ["Very sweet apples.", "The delivery arrived yesterday."],
+    {"Sweetness": definition},
+    model=model,
+    concurrency=1,
+)
+print(annotations.values)
+```
+
+The LLM returns a numeric answer for each text–factor pair. Missing mentions are recorded as `NaN`; probability and confidence fields remain empty. For LLM annotation, each factor uses a separate request. The probability-weighted interpretation below applies to Jev and Kev.
+
 ## Understand values and confidence
 
 A `score` value is the probability-weighted average of the declared numbers. If levels 0, 1 and 2 have probabilities 0.1, 0.2 and 0.7, the value is `0×0.1 + 1×0.2 + 2×0.7 = 1.6`. This is not “confidence of 1.6” and need not be an integer.
@@ -99,7 +124,7 @@ review = review_definition(
 print(review["decision"])
 ```
 
-Review checks whether a definition is clear and meets the format requirements. It does not establish objective measurability or a causal relationship with the outcome. Records may contain the examples you supply; keep them private.
+Review checks whether a definition is clear and meets the format requirements. Records may contain the examples you supply; keep them private.
 
 With many candidates, use `compare_definitions` to ask whether two definitions describe the same core attribute. For example, compare sweetness with purchase channel:
 

@@ -10,7 +10,7 @@ Statistical analysis commonly starts with a variable table: one observation per 
 
 A **factor** in COAT is a high-level attribute defined and measured from this material. For example, “sweetness described in the review” can have three levels. A definition specifies the meaning and assignment rules; annotation applies those rules to each review; the resulting values form a column for statistical computation. Factors can also support summaries, filtering or prediction without causal analysis.
 
-**Factor discovery** addresses not yet knowing which attributes to measure. A language model reads selected examples and proposes candidate definitions. An annotation model measures them. Statistical methods select variables and construct feedback. The next round examines observations not sufficiently explained by existing variables and seeks missing information. COAT therefore does more than generate a one-off attribute list, and does not ask the language model to decide causal relationships directly.
+**Factor discovery** addresses not yet knowing which attributes to measure. A language model reads selected examples and proposes candidate definitions. An annotation model measures them. Statistical methods select variables and construct feedback. The next round examines observations not sufficiently explained by existing variables and seeks missing information. Statistical analysis uses the measured factors to study their relationships.
 
 ### See the feedback loop
 
@@ -20,7 +20,7 @@ Similar measured attributes can accompany different ratings. Looking back at the
 
 Preset teaching example. [Static illustration](/static/coat-journal/media/loop-poster-en.webp) · [Full introduction](/#intro-video ":ignore")
 
-The paper considers text, images and data whose measurement requires external tools. This package provides ready-to-use text-column interfaces and statistical operations on measured tables. The framework's scope and an interface's accepted input are separate questions.
+The paper considers text, images and data whose measurement requires external tools. This package provides ready-to-use text-column interfaces and statistical operations on measured tables.
 
 ## What a Markov blanket answers
 

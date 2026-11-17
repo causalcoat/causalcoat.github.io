@@ -2,7 +2,7 @@
 
 # Install and prepare an analysis
 
-Install the Python package first, then prepare a working directory for your data and task configuration. Installing coatlearn does not download model weights, start a server or send data to a model.
+Install coatlearn and prepare a working directory for the example analysis.
 
 ## 1. Create a Python environment
 
@@ -26,6 +26,8 @@ After activation, `python` and `pip` refer to this environment. Use the same env
 
 ## 2. Install from PyPI
 
+Install the package in the active environment and open its command help:
+
 ```bash
 python -m pip install coatlearn
 python -m coatlearn --help
@@ -39,6 +41,8 @@ You can view the installed release without calling a model:
 python -m pip show coatlearn
 ```
 
+The published PyPI package may precede the workspace commands below. Use a package built from a revision that includes `coatlearn setup prepare` for this guide.
+
 A standard installation supports hosted chat models, hosted Jev and connections to an already running local Kev server. It does not require a local GPU. Most users do not need additional dependencies.
 
 | Additional task | Installation | Next step |
@@ -50,56 +54,17 @@ For a later update, use `python -m pip install --upgrade coatlearn`. To modify t
 
 ## 3. Prepare the example working directory
 
-The installed package contains the library and CLI. It does not place example data or configuration files in your current directory. Download the three task configurations, two CSV files and their data attribution into a new `coat-example` directory. You do not need Git or a repository clone.
-
-Run this Python code once, for example by saving it as `prepare_example.py` and running `python prepare_example.py`, or in a notebook cell. It downloads public files from the project's GitHub repository; it does not execute downloaded code or call a model.
-
-```python
-from pathlib import Path
-from urllib.request import urlretrieve
-
-root = Path("coat-example")
-root.mkdir(exist_ok=False)
-base = "https://raw.githubusercontent.com/causalcoat/COAT-Learn/main/"
-files = [
-    "config/mb.toml",
-    "config/pag.toml",
-    "config/adj.toml",
-    "data/apple_reviews_PAG_graph1.csv",
-    "data/hillstrom_email_visit_post.csv",
-    "data/README.md",
-    "data/LICENSE",
-]
-for name in files:
-    destination = root / name
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    urlretrieve(base + name, destination)
-print(root.resolve())
-```
-
-Use a new directory name if `coat-example` already exists. The two CSV files use CC BY 4.0; keep the downloaded data attribution and license when sharing them.
-
-In the terminal, enter the directory that was just created:
+Create and enter a working directory, then prepare the example files explicitly:
 
 ```bash
+mkdir -p coat-example
 cd coat-example
-python -m coatlearn mb --config config/mb.toml --decision-model jev
+coatlearn setup prepare --method all --directory . --decision-kind llm
 ```
 
-This reads local data and configuration. It reports 1,000 rows and makes no model calls. The working directory now contains:
+Choose `mb`, `pag`, or `adj` instead of `all` to prepare one example. The command downloads or copies the example configuration and data, including their attribution and license. Existing files are reused. Keep the attribution and license when sharing the data.
 
-```text
-coat-example/
-├── config/
-│   ├── mb.toml
-│   ├── pag.toml
-│   └── adj.toml
-└── data/
-    ├── apple_reviews_PAG_graph1.csv
-    ├── hillstrom_email_visit_post.csv
-    ├── README.md
-    └── LICENSE
-```
+LLM annotation also needs the WordNet dictionary. The command downloads it by default for `--decision-kind llm`; `--decision-kind model` does not download it by default. Use `--wordnet` or `--no-wordnet` to choose explicitly. With your own data, use `--method none --decision-kind llm` to prepare WordNet without example files. Preparing resources does not call a model. Run the command again when needed; existing resources are reused.
 
 ## 4. Understand the configuration
 
@@ -119,8 +84,8 @@ This is one section, not a complete configuration. Retain the model and analysis
 
 ## 5. Connect models before execution
 
-The example files define hosted DeepSeek Flash for factor proposal and several decision-model connections. `--decision-model jev` selects hosted Jev for annotation, definition review and deduplication; no local model server is needed. The default decision connection is local Kev-9B, which requires a running server.
+The example files define hosted DeepSeek Flash for factor proposal and several decision-model connections. A named Jev connection selects hosted Jev for annotation, definition review and deduplication; no local model server is needed. The default decision connection is local Kev-9B, which requires a running server.
 
-For hosted execution, prepare `DEEPSEEK_API_KEY` and `TYPESAFE_API_KEY` using the [model connection guide](<models.md#credentials>). Keep actual keys in environment variables or a private dotenv file, not in TOML. The CLI reads an explicitly selected dotenv file only when executing with `--run`.
+For hosted execution, prepare `DEEPSEEK_API_KEY` and `TYPESAFE_API_KEY` using the [model connection guide](<models.md#credentials>). Keep actual keys in environment variables or a private dotenv file, not in TOML. The CLI reads an explicitly selected dotenv file during execution.
 
-Continue with [your first analysis](<quickstart.md>) to connect those models, run MB and read its result. Adding `--run` sends the selected texts to the configured services and may incur charges; installation and local inspection do not.
+Continue with [your first analysis](<quickstart.md>) to connect those models, run MB and read its result. Executing the analysis sends the selected texts to the configured services and may incur charges; installation and local inspection do not.

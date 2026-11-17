@@ -10,6 +10,6 @@ Install the corpus explicitly in the Python environment used for analysis:
 python3 -m nltk.downloader wordnet omw-1.4
 ```
 
-This command downloads language resources, not model weights. The package does not download corpora during analysis.
+The package does not download corpora during analysis.
 
 For model addresses and credentials, see [connect models](<models.md>). For a matching local decision server, see [deploy Kev](<kev.md>). Command-line options are available through `python3 -m coatlearn mb --help`.

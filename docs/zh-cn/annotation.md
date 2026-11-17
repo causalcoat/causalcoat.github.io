@@ -51,6 +51,31 @@ annotations.values.to_csv("values.csv", index=False)
 
 多个因子可以一起放入 `definitions` 映射。`batch_size` 控制一次请求包含多少个因子，最多为 8；`concurrency` 控制并行工作线程数，默认 16。每次请求使用一条文本，完整定义会被自动转为问题。
 
+## 使用 LLM 标注
+
+同一个 `annotate` 函数也接受聊天模型配置。设置 `DEEPSEEK_API_KEY` 后，继续使用上面的定义：
+
+```python
+from coatlearn import ModelConfig
+
+model = ModelConfig(
+    model="deepseek-flash",
+    base_url="https://api.deepseek.com",
+    api_key_env="DEEPSEEK_API_KEY",
+    thinking="disabled",
+    temperature=None,
+)
+annotations = annotate(
+    ["Very sweet apples.", "The delivery arrived yesterday."],
+    {"Sweetness": definition},
+    model=model,
+    concurrency=1,
+)
+print(annotations.values)
+```
+
+LLM 为每个文本与因子组合返回数值答案。未提及的属性记为 `NaN`，概率与置信度字段留空。使用 LLM 时，每个因子单独发送请求。下面的概率加权说明适用于 Jev 和 Kev。
+
 ## 理解数值与置信度
 
 `score` 的值是各档概率对声明数值的加权平均。若 0、1、2 的概率分别为 0.1、0.2、0.7，测量值就是 `0×0.1 + 1×0.2 + 2×0.7 = 1.6`。它不是“有 1.6 的置信度”，也不一定是整数。
@@ -99,7 +124,7 @@ review = review_definition(
 print(review["decision"])
 ```
 
-审核检查定义是否清楚、格式是否满足要求，不证明属性客观可测或与结果有因果关系。记录中可能包含提供的示例，应私下保存。
+审核检查定义是否清楚、格式是否满足要求。记录中可能包含提供的示例，应私下保存。
 
 如果候选定义很多，可用 `compare_definitions` 判断两个定义是否描述同一核心属性。例如，比较甜度与购买渠道：
 

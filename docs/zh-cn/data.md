@@ -18,7 +18,7 @@
 
 ## 了解两份示例
 
-[苹果 graph1 CSV](<https://github.com/causalcoat/COAT-Learn/tree/main/data/apple_reviews_PAG_graph1.csv>)有 1000 行，来自作者的合成苹果评论研究数据。MB 读取 `Score`、`Review`；PAG 读取 `Taste`、`Score`、`Review`。两种方法共享数据，但问题不同：前者寻找目标信息集合，后者利用补充变量细化结构。这不是收集自电商平台的真实顾客评论。
+[苹果 graph1 CSV](<https://github.com/causalcoat/COAT-Learn/tree/main/data/apple_reviews_PAG_graph1.csv>)有 1000 行，来自作者的合成苹果评论研究数据。MB 读取 `Score`、`Review`；PAG 读取 `Taste`、`Score`、`Review`。MB 寻找目标信息集合，PAG 利用补充变量细化结构。
 
 [Hillstrom 帖子 CSV](<https://github.com/causalcoat/COAT-Learn/tree/main/data/hillstrom_email_visit_post.csv>)有 2000 行，包含合成顾客帖子及邮件、访问记录。它采用研究中的混杂设置，不是原始随机化 Hillstrom 顾客表。ADJ 只读取 `email_type`、`visit`、`post`，不直接读取隐藏的顾客属性。
 

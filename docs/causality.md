@@ -8,7 +8,7 @@ This page uses customer attribute `V`, email sending `T` and website visit `Y` t
 
 ## Declare a fixed graph
 
-Start with a simple chain `V -> T -> Y`: the customer attribute affects email sending, which affects visits. This assumed graph includes no separate `V` to `Y` path. The purpose here is to pass an explicit structure to the interface.
+Start with a simple chain `V -> T -> Y`: the customer attribute affects email sending, which affects visits. This assumed graph includes no separate `V` to `Y` path.
 
 Use `CausalGraph` to keep node-name order together with an endpoint matrix:
 

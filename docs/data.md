@@ -18,7 +18,7 @@ Only named columns enter discovery; other columns can stay in the CSV. In partic
 
 ## Understand the two examples
 
-The [apple graph1 CSV](<https://github.com/causalcoat/COAT-Learn/tree/main/data/apple_reviews_PAG_graph1.csv>) has 1,000 rows from the authors' synthetic apple-review research data. MB reads `Score` and `Review`; PAG reads `Taste`, `Score` and `Review`. They share data but ask different questions: target-information selection versus structural refinement through additional variables. These are not real customer reviews collected from an online shop.
+The [apple graph1 CSV](<https://github.com/causalcoat/COAT-Learn/tree/main/data/apple_reviews_PAG_graph1.csv>) has 1,000 rows from the authors' synthetic apple-review research data. MB reads `Score` and `Review`; PAG reads `Taste`, `Score` and `Review`. MB selects target information, while PAG uses additional variables to refine structure.
 
 The [Hillstrom posts CSV](<https://github.com/causalcoat/COAT-Learn/tree/main/data/hillstrom_email_visit_post.csv>) has 2,000 rows with synthetic customer posts and email/visit records. It uses the study's confounded setting, not the original randomized Hillstrom customer table. ADJ reads only `email_type`, `visit` and `post`, not hidden customer attributes directly.
 

@@ -2,7 +2,7 @@
 
 # 安装与准备分析
 
-先安装 Python 包，再为数据和任务配置准备工作目录。安装 coatlearn 不会下载模型权重、启动服务或向模型发送数据。
+安装 coatlearn，并为示例分析准备工作目录。
 
 ## 1. 创建 Python 环境
 
@@ -26,6 +26,8 @@ py -3 -m venv .venv
 
 ## 2. 从 PyPI 安装
 
+在当前环境中安装软件包，并打开命令帮助：
+
 ```bash
 python -m pip install coatlearn
 python -m coatlearn --help
@@ -39,6 +41,8 @@ python -m coatlearn --help
 python -m pip show coatlearn
 ```
 
+PyPI 已发布的软件包可能早于下文的工作区命令。本指南需要使用包含 `coatlearn setup prepare` 的代码版本构建的软件包。
+
 普通安装可以使用托管聊天模型、托管 Jev，也能连接已经运行的本地 Kev 服务，不要求本机有 GPU。大多数使用者无需安装额外依赖。
 
 | 额外工作 | 安装方式 | 下一步 |
@@ -50,56 +54,17 @@ python -m pip show coatlearn
 
 ## 3. 准备示例工作目录
 
-安装包包含库和 CLI，不会把示例数据、配置自动放进当前目录。把三份任务配置、两份 CSV 及数据署名说明下载到新的 `coat-example` 目录即可，不需要 Git 或克隆仓库。
-
-运行下面的 Python 代码一次。可以保存为 `prepare_example.py` 后运行 `python prepare_example.py`，也可以放在 notebook 单元格中执行。代码从项目 GitHub 仓库下载公开文件，不执行下载的代码，也不调用模型。
-
-```python
-from pathlib import Path
-from urllib.request import urlretrieve
-
-root = Path("coat-example")
-root.mkdir(exist_ok=False)
-base = "https://raw.githubusercontent.com/causalcoat/COAT-Learn/main/"
-files = [
-    "config/mb.toml",
-    "config/pag.toml",
-    "config/adj.toml",
-    "data/apple_reviews_PAG_graph1.csv",
-    "data/hillstrom_email_visit_post.csv",
-    "data/README.md",
-    "data/LICENSE",
-]
-for name in files:
-    destination = root / name
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    urlretrieve(base + name, destination)
-print(root.resolve())
-```
-
-如果已有 `coat-example`，请换一个新目录名。两份 CSV 采用 CC BY 4.0，分享时保留下载的数据来源和许可说明。
-
-在终端进入刚创建的目录：
+创建并进入工作目录，再明确准备示例文件：
 
 ```bash
+mkdir -p coat-example
 cd coat-example
-python -m coatlearn mb --config config/mb.toml --decision-model jev
+coatlearn setup prepare --method all --directory . --decision-kind llm
 ```
 
-命令只读取本地数据和配置，显示 1000 行，不调用模型。此时工作目录为：
+将 `all` 换成 `mb`、`pag` 或 `adj`，可以只准备一种示例。命令下载或复制示例配置、数据、署名和许可文件。已有文件会复用。分享数据时请保留署名和许可文件。
 
-```text
-coat-example/
-├── config/
-│   ├── mb.toml
-│   ├── pag.toml
-│   └── adj.toml
-└── data/
-    ├── apple_reviews_PAG_graph1.csv
-    ├── hillstrom_email_visit_post.csv
-    ├── README.md
-    └── LICENSE
-```
+LLM 标注还需要 WordNet 词库。`--decision-kind llm` 默认下载词库；`--decision-kind model` 默认不下载。也可以用 `--wordnet` 或 `--no-wordnet` 明确选择。使用自有数据时，指定 `--method none --decision-kind llm`，只准备词库，不下载示例文件。准备资源不会调用模型。以后需要时可以再次运行，已有资源会复用。
 
 ## 4. 理解配置文件
 
@@ -119,8 +84,8 @@ text_col = "review"
 
 ## 5. 执行前连接模型
 
-示例用托管 DeepSeek Flash 提出因子，并声明多个决策模型连接。`--decision-model jev` 让托管 Jev 负责标注、定义审核和去重，无需本地模型服务。默认决策连接为本地 Kev-9B，需要先启动对应服务。
+示例用托管 DeepSeek Flash 提出因子，并声明多个决策模型连接。使用命名 Jev 连接，让托管 Jev 负责标注、定义审核和去重，无需本地模型服务。默认决策连接为本地 Kev-9B，需要先启动对应服务。
 
-使用托管模型时，按[模型连接指南](<models.md#凭据>)准备 `DEEPSEEK_API_KEY` 与 `TYPESAFE_API_KEY`。实际密钥放在环境变量或私有 dotenv 文件中，不写进 TOML。CLI 只有加上 `--run` 执行时才读取明确指定的 dotenv 文件。
+使用托管模型时，按[模型连接指南](<models.md#凭据>)准备 `DEEPSEEK_API_KEY` 与 `TYPESAFE_API_KEY`。实际密钥放在环境变量或私有 dotenv 文件中，不写进 TOML。CLI 执行分析时读取明确指定的 dotenv 文件。
 
-接着跟随[第一个分析](<quickstart.md>)连接模型、运行 MB 并读取结果。加上 `--run` 会把所选文本发送给配置的服务，也可能产生费用；安装和本地查看都不会。
+接着跟随[第一个分析](<quickstart.md>)连接模型、运行 MB 并读取结果。执行分析会把所选文本发送给配置的服务，也可能产生费用；安装和本地查看都不会。

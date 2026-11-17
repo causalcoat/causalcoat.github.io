@@ -10,6 +10,6 @@
 python3 -m nltk.downloader wordnet omw-1.4
 ```
 
-这条命令下载语言资源，不是模型权重。本包不会在分析时自动下载语料。
+本包不会在分析时自动下载语料。
 
 模型地址与凭据见[连接模型](<models.md>)，匹配的本地决策服务见[部署 Kev](<kev.md>)。命令行选项可通过 `python3 -m coatlearn mb --help` 查看。

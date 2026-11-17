@@ -8,6 +8,7 @@
 - Complete a task
   - [Prepare data](/data.md)
   - [Connect models](/models.md)
+  - [Set up and run a workspace](/workspace.md)
   - [Deploy local Kev](/kev.md)
   - [Annotate factors](/annotation.md)
   - [Analyze tables and graphs](/causality.md)

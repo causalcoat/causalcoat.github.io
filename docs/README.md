@@ -11,7 +11,8 @@ If you have ratings and reviews but no attribute columns to analyze, start with 
 ## Learn
 
 - [Understand COAT](<concepts.md>): connect unstructured material to causal analysis.
-- [Install and prepare](<installation.md>): install from PyPI, obtain example files and prepare a task.
+- [Install and prepare](<installation.md>): install from PyPI and obtain example files.
+- [Prepare a workspace](<workspace.md>): set up and run an analysis.
 - [Your first analysis](<quickstart.md>): install, inspect configuration, connect models, run MB and read one result.
 
 ## Complete a task

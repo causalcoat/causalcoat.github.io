@@ -74,7 +74,7 @@ print(result["adjustment_sets"])
 print(result["estimates"])
 ```
 
-For direct Python calls, treatment must already be encoded as 0 and 1; outcome must be numeric. TOML can explicitly declare conversions from original labels. The method seeks sets valid under the current graph and assumptions, not a guaranteed effect number for every input.
+For direct Python calls, treatment must already be encoded as 0 and 1; outcome must be numeric. TOML can explicitly declare conversions from original labels. The method seeks sets valid under the current graph and assumptions.
 
 Effect computation uses complete-case inverse probability weighting, selecting usable rows separately for each adjustment set. The supplied ADJ configuration also has factor-support, prediction-screening, coverage and researcher-prior settings. Those exact thresholds and policies do not apply to every `run_adj` call.
 

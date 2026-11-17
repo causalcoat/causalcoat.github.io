@@ -2,7 +2,7 @@
 
 # Connect models
 
-Before running discovery, connect coatlearn to a model that proposes factors and a model that assigns values to individual observations. These jobs can use different services. Installing the Python package neither downloads weights nor starts a model.
+Before running discovery, connect coatlearn to a model that proposes factors and a model that assigns values to individual observations. These jobs can use different services.
 
 ## Distinguish models from serving software
 
@@ -19,7 +19,7 @@ A **chat model** generates factor names, definitions and revisions from prompts.
 
 ## Connect hosted models
 
-For a first run, use existing presets without entering a model version. A **preset** is a named connection configuration containing a model identifier, address and credential-variable name. It is not a running model.
+For a first run, use existing presets without entering a model version. A **preset** is a named connection configuration containing a model identifier, address and credential-variable name. Start any local service separately.
 
 From the `coat-example` directory prepared in the [installation guide](<installation.md>), prepare `DEEPSEEK_API_KEY` and `TYPESAFE_API_KEY` in your shell, then switch the example's three decision roles to Jev:
 
@@ -56,7 +56,7 @@ Presets hold identifiers that match the project's examples. Import them directly
 | `kev9b` | `kev-9b-v1.0` | `http://127.0.0.1:8019` | none |
 | `kev4b` | `kev-4b-v1.0` | `http://127.0.0.1:8014` | none |
 
-A model identifier tells the service which model a request should use. It is not a coatlearn version you must maintain. With a preset, you do not repeat it. When connecting another service or serving your own weights, set `model` to an identifier the service accepts. Results record it to trace which model was used. `deepseek-flash` is a provider-managed alias, not a fixed local weight snapshot.
+A model identifier tells the service which model a request should use. With a preset, you do not repeat it. When connecting another service or serving your own weights, set `model` to an identifier the service accepts. Results record it to trace which model was used. `deepseek-flash` is a provider-managed alias, not a fixed local weight snapshot.
 
 Customize a preset to produce an independent configuration, for example to reduce main-model concurrency or change a local Kev port:
 
@@ -67,7 +67,7 @@ main = dpsk41f(max_concurrency=3, env_file=None)
 annotation = kev9b(base_url="http://127.0.0.1:8020")
 ```
 
-8020 is a user-chosen example port and must match the server's startup port. 8019 and 8014 are also project conventions, not fixed Kev ports. Changing a configuration neither starts nor moves a server. `127.0.0.1` means the machine running the client. The package's Kev client uses loopback HTTP and reads no provider credentials.
+8020 is a user-chosen example port and must match the server's startup port. 8019 and 8014 are also project conventions, not fixed Kev ports. Start the server separately at the configured address. `127.0.0.1` means the machine running the client. The package's Kev client uses loopback HTTP and reads no provider credentials.
 
 Python presets can read the required key from `.env` in the working directory by default. Set `env_file=None` to disable that. Each execution creates an independent client with separate measurement caches and counters.
 

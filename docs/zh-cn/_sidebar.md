@@ -8,6 +8,7 @@
 - 完成具体工作
   - [准备数据](/zh-cn/data.md)
   - [连接模型](/zh-cn/models.md)
+  - [配置和运行工作区](/zh-cn/workspace.md)
   - [部署本地 Kev](/zh-cn/kev.md)
   - [标注因子](/zh-cn/annotation.md)
   - [分析测量表与图](/zh-cn/causality.md)
